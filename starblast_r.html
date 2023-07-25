@@ -2829,7 +2829,6 @@
     WEAPON_TYPES,
     ALIEN_TYPES,
     IIIll,
-    Trolltest,
     l1IOO,
     OO0Il,
     Oll1I,
@@ -15941,7 +15940,7 @@
             },
             t
         }
-            (), Oll1I = new THREE.Texture((new this.ShipTexture).canvas), Oll1I.needsUpdate = !0, l1IOO = new THREE.Texture((new this.ShipEmissiveTexture).canvas), l1IOO.wrapS = l1IOO.wrapT = THREE.RepeatWrapping, l1IOO.needsUpdate = !0, IIIll = new THREE.Texture(new this.ShipEmissiveTexture(null, !0).canvas), IIIll.wrapS = IIIll.wrapT = THREE.RepeatWrapping, IIIll.needsUpdate = !0, OO0Il.minFilter = THREE.LinearFilter, OO0Il.needsUpdate = !0, hasProp = {}
+            (), Oll1I = new THREE.Texture((new this.ShipTexture).canvas), Oll1I.needsUpdate = !0, l1IOO = new THREE.Texture((new this.ShipEmissiveTexture).canvas), l1IOO.wrapS = l1IOO.wrapT = THREE.RepeatWrapping, l1IOO.needsUpdate = !0, IIIll = new THREE.Texture(new this.ShipEmissiveTexture(null, !0).canvas), IIIll.wrapS = IIIll.wrapT = THREE.RepeatWrapping, IIIll.needsUpdate = !0, OO0Il = new THREE.Texture((new ShipShieldTexture).canvas), OO0Il.minFilter = THREE.LinearFilter, OO0Il.needsUpdate = !0, hasProp = {}
             .hasOwnProperty, this.I0lIl = function () {
             function t(t, e, i, s) {
                 var l,
@@ -16223,7 +16222,7 @@
                     shininess: 5,
                     color: 4577877,
                     emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: IIIll
+                    emissiveMap: l1IOO
                 })
             },
             t.prototype.buildFullColorMaterial = function () {
@@ -19846,8 +19845,8 @@
                     map: Oll1I,
                     shininess: 5,
                     color: 4577877,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: IIIll
+                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, ),
+                    emissiveMap: l1IOO
                 })
             },
             t.prototype.buildFullColorMaterial = function () {
