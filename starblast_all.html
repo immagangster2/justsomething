@@ -21766,7 +21766,7 @@
             this.rotate_mines = !1,
             this.radar_zoom = 1,
             this.soundtrack = "procedurality.mp3",
-            this.respawn_delay = 5e3,
+            this.respawn_delay = 1,
             this.OI1OO = !0,
             this.anonymous_ships = !1,
             this.spectate = !1,
@@ -21937,6 +21937,7 @@
             this.radar_zoom = 1,
             this.soundtrack = "procedurality.mp3",
             this.max_enter_players = 50,
+            this.respawn_delay = 1,
             this.restricted_weapons_store = !1,
             this.vocabulary = [
               { text: "Hello", icon: "E", key: "O" },
@@ -22079,6 +22080,7 @@
             this.custom_color = !0,
             this.radar_shows_leader = !0,
             this.rotate_mines = !0,
+            this.respawn_delay = 1,
             this.restricted_weapons_store = !1,
             this.vocabulary = [
               { text: "You", icon: "N", key: "O" },
@@ -23094,12 +23096,13 @@
             this.max_enter_time = 3600,
             this.max_enter_players = 10,
             this.soundtrack = "argon.mp3",
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.pro = !1,
             this.anonymous_ships = !0,
             this.radar_shows_leader = !1,
-            this.show_weaponsbar = !1,
+            this.show_weaponsbar = !0,
+            this.restricted_weapons_store = !1,
             this.tips_test = "Kill any ship for %d point",
             this.tips = [t("Kill any ship for %d point").replace("%d", 1), t("Kill your target for %d points").replace("%d", 2), t("Score %d points to win the round").replace("%d", 12)]
         }
@@ -24230,7 +24233,7 @@
             this.max_enter_time = 120,
             this.max_enter_players = 30,
             this.soundtrack = "crystals.mp3",
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.anonymous_ships = !1,
             this.radar_shows_leader = !1,
@@ -25039,7 +25042,7 @@
             this.ship_can_buy_life = !1,
             this.show_upgrades = !1,
             this.disable_ship_upgrade_collapsing = !0,
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.sharing_enabled = !1,
             this.OI1OO = !1,
             this.tips_test = "You will learn everything about controlling your ship, upgrading, using secondary weapons, comms.",
@@ -26374,7 +26377,7 @@
                 s = t[e], e = e.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"), "string" == typeof s && (s = s.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")), i[e] = s;
             return this.respawn_delay = 1,
             this.OOlOI.killed(0, t.gameover, i),
-            this.respawn_delay = 5e3
+            this.respawn_delay = 1
         },
         e.prototype.updateScore = function (t) {
             if (null != this.scoreboard)
