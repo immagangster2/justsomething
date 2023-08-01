@@ -21968,32 +21968,43 @@
             this.soundtrack = "procedurality.mp3",
             this.max_enter_players = 50,
             this.vocabulary = [
-              { text: "Hello", icon: "E", key: "O" },
-              { text: "Bye", icon: "F", key: "B" },
-              { text: "Yes", icon: "L", key: "Y" },
-              { text: "No", icon: "M", key: "N" },
-              { text: "Thanks", icon: "A", key: "X" },
-              { text: "Sorry", icon: "¡", key: "S" },
-              { text: "No Prob", icon: "G", key: "P" },
-              { text: "Good Game", icon: "GG", key: "G" },
-              { text: "Team", icon: "1", key: "T" },
-              { text: "Follow me", icon: "P", key: "F" },
-              { text: "Mine", icon: "D", key: "M" },
-              { text: "Attack", icon: "I", key: "A" },
-              { text: "Help", icon: "J", key: "H" },
-              { text: "Kill", icon: "[", key: "K" },
-              { text: "Leader", icon: ".", key: "L" },
-              { text: "Hmm", icon: "K", key: "Q" },
-              { text: "Loser", icon: "🤡", key: "J" },
-              { text: "Skill Issue", icon: "x", key: "V" },
-              { text: "You", icon: "N", key: "I" },
-              { text: "Me", icon: "O", key: "E" },
-              { text: "Discord", icon: "{", key: "D" },
+                { text: "Hello", icon: "E", key: "O" },
+                { text: "Bye", icon: "F", key: "B" },
+                { text: "Yes", icon: "L", key: "Y" },
+                { text: "No", icon: "M", key: "N" },
+                { text: "Thanks", icon: "A", key: "X" },
+                { text: "Sorry", icon: "¡", key: "S" },
+                { text: "No Prob", icon: "G", key: "P" },
+                { text: "Good Game", icon: "GG", key: "G" },
+                { text: "Team", icon: "1", key: "T" },
+                { text: "Follow me", icon: "P", key: "F" },
+                { text: "Mine", icon: "D", key: "M" },
+                { text: "Attack", icon: "I", key: "A" },
+                { text: "Help", icon: "J", key: "H" },
+                { text: "Kill", icon: "[", key: "K" },
+                { text: "Leader", icon: ".", key: "L" },
+                { text: "Hmm", icon: "K", key: "Q" },
+                { text: "Loser", icon: "🤡", key: "J" },
+                { text: "Skill Issue", icon: "x", key: "V" },
+                { text: "You", icon: "N", key: "I" },
+                { text: "Me", icon: "O", key: "E" },
+                { text: "Discord", icon: "{", key: "D" },
             ],
             this.respawn_delay = 1,
             this.tips_test = "Destroy asteroids",
             this.tips = [t("Destroy asteroids"), t("Kill EOT, NUB and other cheaters"), t("Fight and don't die!"), t("Stand against Cheaters")]
         }
+        this.changeZoom = function (delta) {
+        this.radar_zoom = Math.max(1, Math.min(4, this.radar_zoom + delta));
+        };
+
+        window.addEventListener("wheel", (event) => {
+            if (event.deltaY > 0) {
+                this.changeZoom(-1);
+            } else {
+                this.changeZoom(1);
+            }
+        })
         return extend(i, e),
         i.prototype.OO01I = function (t) {
             return this.game_info = t,
