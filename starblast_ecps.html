@@ -21994,17 +21994,18 @@
             this.tips_test = "Destroy asteroids",
             this.tips = [t("Destroy asteroids"), t("Kill EOT, NUB and other cheaters"), t("Fight and don't die!"), t("Stand against Cheaters")]
         }
-        function changeZoom(event) {
-        const delta = Math.max(-1, Math.min(1, (event.deltaY || -event.detail)));
-
+        this.changeZoom = function (delta) {
         this.radar_zoom += delta;
-
         this.radar_zoom = Math.max(1, Math.min(4, this.radar_zoom));
+        console.log("Zoom:", this.radar_zoom);
+    };
 
-        console.log(this.radar_zoom);
-    }
+    const self = this; // Hier wird 'this' in einer Variablen gespeichert
 
-    document.addEventListener("wheel", changeZoom.bind(this));
+    document.addEventListener("wheel", function(event) {
+        const delta = Math.max(-1, Math.min(1, (event.deltaY || -event.detail)));
+        self.changeZoom(delta); // 'self' anstatt 'this' verwenden
+    });
         return extend(i, e),
         i.prototype.OO01I = function (t) {
             return this.game_info = t,
