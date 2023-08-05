@@ -16091,6 +16091,9 @@
                 case "greencarbon":
                     this.buildgreenCarbonMaterial();
                     break;
+                case "bluecarbon":
+                    this.buildblueCarbonMaterial();
+                    break;
                 case "copperr":
                     this.buildCopperMaterial();
                     break;
@@ -16223,6 +16226,18 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 4577877,
+                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissiveMap: IIIll
+                })
+            },
+            t.prototype.buildblueCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
+                    map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
+                    shininess: 5,
+                    bumpScale: .1,
+                    color: 4543706,
                     emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
                     emissiveMap: IIIll
                 })
@@ -19717,6 +19732,9 @@
                 case "greencarbon":
                     this.buildgreenCarbonMaterial();
                     break;
+                case "bluecarbon":
+                    this.buildblueCarbonMaterial();
+                    break;
                 case "copperr":
                     this.buildCopperMaterial();
                     break;
@@ -19849,6 +19867,18 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 4577877,
+                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissiveMap: IIIll
+                })
+            },
+            t.prototype.buildblueCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
+                    map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
+                    shininess: 5,
+                    bumpScale: .1,
+                    color: 4543706,
                     emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
                     emissiveMap: IIIll
                 })
@@ -31666,6 +31696,12 @@
                 for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#6aa84f"), l.addColorStop(.1, "#93c47d"), n = o = 0, d = h - 1; o <= d; n = o += 1)
                     l.addColorStop((n + .5) / h, "#38761d"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#93c47d");
                 break;
+            case "bluecarbon":
+                for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, u = h - 1; a <= u; n = a += 1)
+                    s.addColorStop(n / h, "#2913C4"), s.addColorStop((n + 1) / h, "#29BCC4");
+                for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#2968C4"), l.addColorStop(.1, "#29BCC4"), n = o = 0, d = h - 1; o <= d; n = o += 1)
+                    l.addColorStop((n + .5) / h, "#2913C4"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#29BCC4");
+                break;
             case "fullcolorr":
                 s = t.createLinearGradient(0, 0, 0, i),
                     s.addColorStop(0, "hsl(" + this.hue + ",90%,50%)"),
@@ -32198,6 +32234,7 @@
                 gold: "Gold",
                 carbon: "Carbon",
                 greencarbon: "Green Carbon",
+                bluecarbon: "Blue Carbon",
                 copperr: "Copper",
                 diamondd: "Diamond",
                 x277: "Electric Blue",
