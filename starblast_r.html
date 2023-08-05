@@ -1105,7 +1105,7 @@
             height: 40px;
             line-height: 40px;
             padding: 0 20px;
-            border-bottom: 1px solid hsl(118, 100%, 50%);
+            border-bottom: 1px solid hsl(0, 100%, 50%);
             transition: all .5s ease
         }
 
@@ -15334,10 +15334,10 @@
                 for (this.OOlOI = t, this.IOl0I = new THREE.Group, this.IOl0I.position.set(0, 0, -1), this.crystals_by_id = [], this.ll0O0 = [], this.models = [], e = i = 1; i <= 10; e = i += 1)
                     this.models.push(this.createModel(e));
                 this.material = new THREE.MeshPhongMaterial({
+                    specular: 61440,
+                    shininess: 30,
                     color: 65280,
                     opacity: .7,
-                    specular: 15728640,
-                    shininess: 30,
                     transparent: !0,
                     side: THREE.DoubleSide,
                     shading: THREE.FlatShading,
@@ -16215,14 +16215,16 @@
                     emissiveMap: IIIll
                 })
             },
-            t.prototype.buildgreenCarbonMaterial = function (t) {
-                return null == t && (t = 10),
-                this.material = new THREE.MeshLambertMaterial({
+            t.prototype.buildgreenCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
                     map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
                     shininess: 5,
+                    bumpScale: .1,
                     color: 4577877,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
-                    emissiveMap: l1IOO
+                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissiveMap: IIIll
                 })
             },
             t.prototype.buildFullColorMaterial = function () {
@@ -19839,14 +19841,16 @@
                     emissiveMap: IIIll
                 })
             },
-            t.prototype.buildgreenCarbonMaterial = function (t) {
-                return null == t && (t = 10),
-                this.material = new THREE.MeshLambertMaterial({
+            t.prototype.buildgreenCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
                     map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
                     shininess: 5,
+                    bumpScale: .1,
                     color: 4577877,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, ),
-                    emissiveMap: l1IOO
+                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissiveMap: IIIll
                 })
             },
             t.prototype.buildFullColorMaterial = function () {
@@ -21792,7 +21796,7 @@
             this.rotate_mines = !1,
             this.radar_zoom = 1,
             this.soundtrack = "procedurality.mp3",
-            this.respawn_delay = 5e3,
+            this.respawn_delay = 1,
             this.OI1OO = !0,
             this.anonymous_ships = !1,
             this.spectate = !1,
@@ -21964,28 +21968,29 @@
             this.soundtrack = "procedurality.mp3",
             this.max_enter_players = 50,
             this.vocabulary = [
-              { text: "Hello", icon: "E", key: "O" },
-              { text: "Bye", icon: "F", key: "B" },
-              { text: "Yes", icon: "L", key: "Y" },
-              { text: "No", icon: "M", key: "N" },
-              { text: "Thanks", icon: "A", key: "X" },
-              { text: "Sorry", icon: "¡", key: "S" },
-              { text: "No Prob", icon: "G", key: "P" },
-              { text: "Good Game", icon: "GG", key: "G" },
-              { text: "Team", icon: "1", key: "T" },
-              { text: "Follow me", icon: "P", key: "F" },
-              { text: "Mine", icon: "D", key: "M" },
-              { text: "Attack", icon: "I", key: "A" },
-              { text: "Help", icon: "J", key: "H" },
-              { text: "Kill", icon: "[", key: "K" },
-              { text: "Leader", icon: ".", key: "L" },
-              { text: "Hmm", icon: "K", key: "Q" },
-              { text: "Loser", icon: "🤡", key: "J" },
-              { text: "Skill Issue", icon: "x", key: "V" },
-              { text: "You", icon: "N", key: "I" },
-              { text: "Me", icon: "O", key: "E" },
-              { text: "Discord", icon: "{", key: "D" },
+                { text: "Hello", icon: "E", key: "O" },
+                { text: "Bye", icon: "F", key: "B" },
+                { text: "Yes", icon: "L", key: "Y" },
+                { text: "No", icon: "M", key: "N" },
+                { text: "Thanks", icon: "A", key: "X" },
+                { text: "Sorry", icon: "¡", key: "S" },
+                { text: "No Prob", icon: "G", key: "P" },
+                { text: "Good Game", icon: "GG", key: "G" },
+                { text: "Team", icon: "1", key: "T" },
+                { text: "Follow me", icon: "P", key: "F" },
+                { text: "Mine", icon: "D", key: "M" },
+                { text: "Attack", icon: "I", key: "A" },
+                { text: "Help", icon: "J", key: "H" },
+                { text: "Kill", icon: "[", key: "K" },
+                { text: "Leader", icon: ".", key: "L" },
+                { text: "Hmm", icon: "K", key: "Q" },
+                { text: "Loser", icon: "🤡", key: "J" },
+                { text: "Skill Issue", icon: "x", key: "V" },
+                { text: "You", icon: "N", key: "I" },
+                { text: "Me", icon: "O", key: "E" },
+                { text: "Discord", icon: "{", key: "D" },
             ],
+            this.respawn_delay = 1,
             this.tips_test = "Destroy asteroids",
             this.tips = [t("Destroy asteroids"), t("Kill EOT, NUB and other cheaters"), t("Fight and don't die!"), t("Stand against Cheaters")]
         }
@@ -22105,6 +22110,7 @@
             this.radar_shows_leader = !0,
             this.rotate_mines = !0,
             this.restricted_weapons_store = !0,
+            this.respawn_delay = 1,
             this.vocabulary = [
               { text: "You", icon: "N", key: "O" },
               { text: "Me", icon: "O", key: "E" },
@@ -23119,7 +23125,7 @@
             this.max_enter_time = 3600,
             this.max_enter_players = 10,
             this.soundtrack = "argon.mp3",
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.pro = !1,
             this.anonymous_ships = !0,
@@ -24255,7 +24261,7 @@
             this.max_enter_time = 120,
             this.max_enter_players = 30,
             this.soundtrack = "crystals.mp3",
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.anonymous_ships = !1,
             this.radar_shows_leader = !1,
@@ -25064,7 +25070,7 @@
             this.ship_can_buy_life = !1,
             this.show_upgrades = !1,
             this.disable_ship_upgrade_collapsing = !0,
-            this.respawn_delay = 1e3,
+            this.respawn_delay = 1,
             this.sharing_enabled = !1,
             this.OI1OO = !1,
             this.tips_test = "You will learn everything about controlling your ship, upgrading, using secondary weapons, comms.",
@@ -26399,7 +26405,7 @@
                 s = t[e], e = e.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"), "string" == typeof s && (s = s.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")), i[e] = s;
             return this.respawn_delay = 1,
             this.OOlOI.killed(0, t.gameover, i),
-            this.respawn_delay = 5e3
+            this.respawn_delay = 1
         },
         e.prototype.updateScore = function (t) {
             if (null != this.scoreboard)
@@ -31660,20 +31666,20 @@
                 for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#6aa84f"), l.addColorStop(.1, "#93c47d"), n = o = 0, d = h - 1; o <= d; n = o += 1)
                     l.addColorStop((n + .5) / h, "#38761d"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#93c47d");
                 break;
-                case "fullcolorr":
-                    s = t.createLinearGradient(0, 0, 0, i),
-                        s.addColorStop(0, "hsl(" + this.hue + ",90%,50%)"),
-                        s.addColorStop(.5, "hsl(" + this.hue + ",90%,70%)"),
-                        s.addColorStop(.5, "hsl(" + this.hue + ",90%,30%)"),
-                        s.addColorStop(1, "hsl(" + this.hue + ",90%,60%)");
-                    break;
-                case "x277":
-                    s = t.createLinearGradient(0, 0, 0, i),
-                        s.addColorStop(0, "hsla(220,100%,30%)"),
-                        s.addColorStop(.5, "hsla(200,100%,70%)"),
-                        s.addColorStop(.5, "hsla(220,100%,40%)"),
-                        s.addColorStop(1, "hsla(200,100%,70%)");
-                    break;
+            case "fullcolorr":
+                s = t.createLinearGradient(0, 0, 0, i),
+                    s.addColorStop(0, "hsl(" + this.hue + ",90%,50%)"),
+                    s.addColorStop(.5, "hsl(" + this.hue + ",90%,70%)"),
+                    s.addColorStop(.5, "hsl(" + this.hue + ",90%,30%)"),
+                    s.addColorStop(1, "hsl(" + this.hue + ",90%,60%)");
+                break;
+            case "x277":
+                s = t.createLinearGradient(0, 0, 0, i),
+                    s.addColorStop(0, "hsla(220,100%,30%)"),
+                    s.addColorStop(.5, "hsla(200,100%,70%)"),
+                    s.addColorStop(.5, "hsla(220,100%,40%)"),
+                    s.addColorStop(1, "hsla(200,100%,70%)");
+                break;
                 case "silverr":
                     s = t.createLinearGradient(0, 0, 0, i),
                         s.addColorStop(0, "#4c558d"),
@@ -31864,6 +31870,9 @@
                 break;
               case "designer":
                 this.icon = "https://starblast.io/ecp/shipdesigner.jpg";
+                break;
+              case "trollface":
+                this.icon = "https://image.spreadshirtmedia.net/image-server/v1/compositions/T6A1PA5835PT17X31Y44D147280542W24999H20334/views/1,width=550,height=550,appearanceId=1,backgroundColor=FFFFFF,noPt=true/t-shirt-trollface-rageface-meme-maenner-t-shirt.jpg";
                 break;
             }
             if (d = Math.round(i / 2.2), null != this.icon && this.icon.startsWith("http")) {
@@ -32148,6 +32157,7 @@
         t.options = {
             badge: {
                 Lord: "Loser",
+                trollface: "Troll Face",
                 star: "Star",
                 reddit: "Reddit",
                 pirate: "Pirate",
