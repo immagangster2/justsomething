@@ -11076,7 +11076,7 @@
                             z: m,
                             OIl01: t.O0II1.status.OIl01,
                             IlIOO: t.O0II1.status.IlIOO,
-                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, .5, 1),
+                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, 1, 1),
                             type: 0,
                             angle: e + (Math.random() - .5) * n.type.error / 180 * (180 * THREE.Math.DEG2RAD),
                             speed: n.speed,
@@ -11330,7 +11330,7 @@
                             z: m,
                             OIl01: t.O0II1.status.OIl01,
                             IlIOO: t.O0II1.status.IlIOO,
-                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, .5, 1),
+                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, 1, 1),
                             type: 0,
                             angle: e + (Math.random() - .5) * n.type.error / 180 * (180 * THREE.Math.DEG2RAD),
                             speed: n.speed,
@@ -16014,7 +16014,7 @@
                     o = D[w], o.vertexNormals[0] = o.normal, o.vertexNormals[1] = o.normal, o.vertexNormals[2] = o.normal;
                 if (this.IOl0I = new THREE.Group, this.IOl0I.rotation.order = "ZYX", this.O1lO0 = this.IIOOO(), this.ll0I0 = new THREE.Mesh(this.geometry, this.O1lO0), this.llOlI = 0, this.options.propulsion) {
                     z = new THREE.Geometry,
-                    a = IlO0l.Il0IO(this.hue, .5, 1),
+                    a = IlO0l.Il0IO(this.hue, 1, 1),
                     this.l11I1 = new THREE.MeshBasicMaterial({
                         color: new THREE.Color(a[0] / 255, a[1] / 255, a[2] / 255),
                         opacity: 1,
@@ -16491,8 +16491,8 @@
             t.prototype.IIIl1 = function (t) {
                 var e,
                 i;
-                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, .5, .5)), this.material.color.setHex(this.dark_color), this.options.shield && (this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.shield_mesh.visible = !0)) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.options.shield && (this.shield_mesh.visible = !0), 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, .5, .5)), this.material.color.setHex(this.dark_color), this.options.shield && this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, .5, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)))), this.bumping && (t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))), this.last_frame = t, this.bump_shield && this.options.shield)
-                    return t > this.bump_shield_frame + 30 ? (this.bump_shield = !1, this.shield_mesh.scale.set(1.2, 1.2, 1.2)) : (i = Math.max(0, t - this.bump_shield_frame) / 30, e = 1.2 - .1 * Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.shield_mesh.scale.set(e, e, e), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, .5, Math.pow(1 - i, .25))), this.shield_mesh.visible = !0)
+                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.options.shield && (this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0)) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.options.shield && (this.shield_mesh.visible = !0), 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.options.shield && this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)))), this.bumping && (t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))), this.last_frame = t, this.bump_shield && this.options.shield)
+                    return t > this.bump_shield_frame + 30 ? (this.bump_shield = !1, this.shield_mesh.scale.set(1.2, 1.2, 1.2)) : (i = Math.max(0, t - this.bump_shield_frame) / 30, e = 1.2 - .1 * Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.shield_mesh.scale.set(e, e, e), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, Math.pow(1 - i, .25))), this.shield_mesh.visible = !0)
             },
             t.prototype.bumpShield = function () {
                 if (null != this.last_frame && !this.bump_shield)
