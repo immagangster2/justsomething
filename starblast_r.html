@@ -6269,7 +6269,7 @@
             i,
             s,
             l;
-            return e = 0 === this.lives ? IlO0l.hsvToRgbHex(0, .5, 1) : IlO0l.hsvToRgbHex(this.hue, .2, .9),
+            return e = 0 === this.lives ? IlO0l.hsvToRgbHex(0, .5, 1) : IlO0l.hsvToRgbHex(this.hue, 1, .9),
             l = (e >> 16 & 255) / 255,
             i = (e >> 8 & 255) / 255,
             t = (255 & e) / 255,
@@ -6315,7 +6315,7 @@
             n,
             a,
             o;
-            for (this.hue = t, i = IlO0l.hsvToRgbHex(this.hue, .2, .9), a = (i >> 16 & 255) / 255, s = (i >> 8 & 255) / 255, e = (255 & i) / 255, l = n = 0, o = this.shield_index - 1; n <= o; l = n += 1)
+            for (this.hue = t, i = IlO0l.hsvToRgbHex(this.hue, 1, .9), a = (i >> 16 & 255) / 255, s = (i >> 8 & 255) / 255, e = (255 & i) / 255, l = n = 0, o = this.shield_index - 1; n <= o; l = n += 1)
                 10 !== l && (this.color[3 * l] = a, this.color[3 * l + 1] = s, this.color[3 * l + 2] = e);
             return this.geometry.getAttribute("color").needsUpdate = !0
         },
@@ -16214,7 +16214,7 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 1052688,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: IIIll
                 })
             },
@@ -16238,7 +16238,7 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 18431,
-                    emissive: IlO0l.hsvToRgbHex(this.hue, .5, 1),
+                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: IIIll
                 })
             },
@@ -20132,7 +20132,7 @@
             t.prototype.IIIl1 = function (t) {
                 var e,
                 i;
-                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, .5, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.shield_mesh.visible = !0) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.shield_mesh.visible = !0, 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, .5, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, .5, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)))), this.bumping)
+                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.shield_mesh.visible = !0, 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)))), this.bumping)
                     return t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))
             },
             t.prototype.getTextureIndex = function (t, e) {
