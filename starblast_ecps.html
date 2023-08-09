@@ -16088,6 +16088,9 @@
                 case "carbon":
                     this.buildCarbonMaterial();
                     break;
+                case "ultracarbon":
+                    this.buildultraCarbonMaterial();
+                    break;
                 case "greencarbon":
                     this.buildgreenCarbonMaterial();
                     break;
@@ -16207,6 +16210,18 @@
                 })
             },
             t.prototype.buildCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
+                    map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
+                    shininess: 5,
+                    bumpScale: .1,
+                    color: 1052688,
+                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
+                    emissiveMap: IIIll
+                })
+            },
+            t.prototype.buildultraCarbonMaterial = function () {
                 return this.material = new THREE.MeshPhongMaterial({
                     map: Oll1I,
                     bumpMap: Oll1I,
@@ -19729,6 +19744,9 @@
                 case "carbon":
                     this.buildCarbonMaterial();
                     break;
+                case "ultracarbon":
+                    this.buildultraCarbonMaterial();
+                    break;
                 case "greencarbon":
                     this.buildgreenCarbonMaterial();
                     break;
@@ -19848,6 +19866,18 @@
                 })
             },
             t.prototype.buildCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
+                    map: Oll1I,
+                    bumpMap: Oll1I,
+                    specular: 6316128,
+                    shininess: 5,
+                    bumpScale: .1,
+                    color: 1052688,
+                    emissive: IlO0l.hsvToRgbHex(this.hue, 1, 1),
+                    emissiveMap: IIIll
+                })
+            },
+            t.prototype.buildultraCarbonMaterial = function () {
                 return this.material = new THREE.MeshPhongMaterial({
                     map: Oll1I,
                     bumpMap: Oll1I,
@@ -31690,6 +31720,12 @@
                 for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, d = h - 1; o <= d; n = o += 1)
                     l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                 break;
+            case "ultracarbon":
+                for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, u = h - 1; a <= u; n = a += 1)
+                    s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#2c2c2c");
+                for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#181818"), l.addColorStop(.1, "#2c2c2c"), n = o = 0, d = h - 1; o <= d; n = o += 1)
+                    l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#2c2c2c");
+                break;
             case "greencarbon":
                 for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, u = h - 1; a <= u; n = a += 1)
                     s.addColorStop(n / h, "#38761d"), s.addColorStop((n + 1) / h, "#93c47d");
@@ -31784,6 +31820,17 @@
                 s.addColorStop(1, "#666")
             }
             if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "carbon" === this.finish) {
+                for (n = r = 0, c = 4 * h - 1; r <= c; n = r += 1)
+                    t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
+                s = t.createLinearGradient(0, 0, 0, i),
+                s.addColorStop(.3, "rgba(0,0,0,.5)"),
+                s.addColorStop(.5, "rgba(0,0,0,0)"),
+                s.addColorStop(.7, "rgba(0,0,0,.5)"),
+                t.fillStyle = s,
+                t.fillRect(0, 0, e, i)
+            } else
+                t.fillStyle = s, t.fillRect(0, 0, e, i);
+            if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "ultracarbon" === this.finish) {
                 for (n = r = 0, c = 4 * h - 1; r <= c; n = r += 1)
                     t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
                 s = t.createLinearGradient(0, 0, 0, i),
@@ -32233,6 +32280,7 @@
                 titanium: "Titanium",
                 gold: "Gold",
                 carbon: "Carbon",
+                ultracarbon: "Ultra Carbon",
                 greencarbon: "Green Carbon",
                 bluecarbon: "Blue Carbon",
                 copperr: "Copper",
