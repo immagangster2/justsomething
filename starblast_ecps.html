@@ -6462,7 +6462,7 @@
                     this.geometry.getAttribute("fill").needsUpdate = !0
                 }
                 return this.shield === Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield) && this.shield_max === this.OOlOI.ll1O0.IIO0O.instance.shield_capacity || (this.shield > 0 && 0 === Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield) && this.OOlOI.IIO0O.status.alive && this.OOlOI.ll1O0.IOl1O.Ol1II - this.last_shield_warning > 300 && (this.OOlOI.message(t("Warning: Shield disabled"), "#8FF"), this.last_shield_warning = this.OOlOI.ll1O0.IOl1O.Ol1II), this.shield = Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield), this.shield_max = this.OOlOI.ll1O0.IIO0O.instance.shield_capacity, this.setBar(this.shield_index, this.shield, this.shield_max)),
-                this.ll0O0 !== this.OOlOI.ll1O0.IIO0O.status.ll0O0 && (r = this.OOlOI.IIO0O.type.level, this.ll0O0 < 5 * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 5 * r && !this.OOlOI.IIO0O.instance.allMaxed() && OIIOl.levelUpgrades(r) && this.OOlOI.mode.showUpgrades() && this.OOlOI.message(t("Upgrades unlocked"), "#F88", !0), this.ll0O0 < 20 * r * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 20 * r * r && this.lvl < 6 && this.OOlOI.mode.shipCanUpgrade() && this.OOlOI.message(t("Ship Upgrade"), "#FFF"), this.ll0O0 = this.OOlOI.ll1O0.IIO0O.status.ll0O0, this.setBar(this.crystal_index, this.ll0O0, this.OOlOI.ll1O0.IIO0O.instance.crystals_capacity)),
+                this.ll0O0 !== this.OOlOI.ll1O0.IIO0O.status.ll0O0 && (r = this.OOlOI.IIO0O.type.level, this.ll0O0 < 5 * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 5 * r && !this.OOlOI.IIO0O.instance.allMaxed() && OIIOl.levelUpgrades(r) && this.OOlOI.mode.showUpgrades() && this.OOlOI.message(t("Upgrades unlocked"), "#9cf793", !0), this.ll0O0 < 20 * r * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 20 * r * r && this.lvl < 6 && this.OOlOI.mode.shipCanUpgrade() && this.OOlOI.message(t("Ship Upgrade"), "#FFF"), this.ll0O0 = this.OOlOI.ll1O0.IIO0O.status.ll0O0, this.setBar(this.crystal_index, this.ll0O0, this.OOlOI.ll1O0.IIO0O.instance.crystals_capacity)),
                 i = !1,
                 this.OOlOI.ll1O0.IIO0O.isPulseType() && (i = Math.floor(this.OOlOI.ll1O0.IIO0O.status.generator) < this.OOlOI.ll1O0.IIO0O.pulsePower(), this.generator_depleted && this.OOlOI.ll1O0.IOl1O.Ol1II < this.OOlOI.ll1O0.IIO0O.last_pulse_shot + 60 / this.OOlOI.ll1O0.IIO0O.pulseRate() && (i = !0)),
                 this.generator_depleted !== i && (this.generator_depleted = i, i ? this.setBarColor(this.generator_index, .5, .45, .25) : (this.OOlOI.IIO0O.IOOO0.I1OII || this.OOlOI.IO011.beep(2, .25), this.setBarColor(this.generator_index, 1, .9, .5))),
@@ -22419,7 +22419,7 @@
         i.prototype.shipUpgradeLockedMessage = function () {
             var e,
             i;
-            return this.shipCanUpgrade() ? null : this.OOlOI.ll1O0.IIO0O.type.level >= this.options.max_level ? null : (i = this.team.station_model.level, e = this.team.station_model.ll0O0 >= this.team.station_model.crystals_max, 6 === this.OOlOI.ll1O0.IIO0O.type.level && i >= 3 && !e ? t("Fill station to unlock new ship tiers") : this.OOlOI.ll1O0.IIO0O.type.level > i + 2 && this.OOlOI.ll1O0.IIO0O.type.level < 7 ? t("Upgrade station to unlock new ship tiers") : null)
+            return this.shipCanUpgrade() ? null : this.OOlOI.ll1O0.IIO0O.type.level >= this.options.max_level ? null : (i = this.team.station_model.level, e = this.team.station_model.ll0O0 >= this.team.station_model.crystals_max, 6 === this.OOlOI.ll1O0.IIO0O.type.level && i >= 3 && !e ? t("Fill station to unlock hightest ship tier Dumbass") : this.OOlOI.ll1O0.IIO0O.type.level > i + 2 && this.OOlOI.ll1O0.IIO0O.type.level < 7 ? t("Upgrade station to unlock higher ship tiers Dumbass") : null)
         },
         i.prototype.updateStations = function (t) {
             var e,
@@ -31820,17 +31820,6 @@
                 s.addColorStop(1, "#666")
             }
             if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "carbon" === this.finish) {
-                for (n = r = 0, c = 4 * h - 1; r <= c; n = r += 1)
-                    t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
-                s = t.createLinearGradient(0, 0, 0, i),
-                s.addColorStop(.3, "rgba(0,0,0,.5)"),
-                s.addColorStop(.5, "rgba(0,0,0,0)"),
-                s.addColorStop(.7, "rgba(0,0,0,.5)"),
-                t.fillStyle = s,
-                t.fillRect(0, 0, e, i)
-            } else
-                t.fillStyle = s, t.fillRect(0, 0, e, i);
-            if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "ultracarbon" === this.finish) {
                 for (n = r = 0, c = 4 * h - 1; r <= c; n = r += 1)
                     t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
                 s = t.createLinearGradient(0, 0, 0, i),
