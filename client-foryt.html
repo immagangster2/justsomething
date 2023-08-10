@@ -15735,6 +15735,10 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
                 if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "gold" === this.finish) {
                     for (n = r = 0, d = 4 * h - 1; r <= d; n = r += 1) t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
                     s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(.3, "rgba(0,0,0,.5)"), s.addColorStop(.5, "rgba(0,0,0,0)"), s.addColorStop(.7, "rgba(0,0,0,.5)"), t.fillStyle = s, t.fillRect(0, 0, e, i)
+                }
+                if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "default" === this.finish) {
+                    for (n = r = 0, d = 4 * h - 1; r <= d; n = r += 1) t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
+                    s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(.3, "rgba(0,0,0,.5)"), s.addColorStop(.5, "rgba(0,0,0,0)"), s.addColorStop(.7, "rgba(0,0,0,.5)"), t.fillStyle = s, t.fillRect(0, 0, e, i)
                 } else t.fillStyle = s, t.fillRect(0, 0, e, i);
                 return t.globalCompositeOperation = "source-over"
             }, t.prototype.drawLaser = function(t, e, i) {
@@ -31223,6 +31227,10 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
         }, texists = function(t, e) {
             return translations.exists(t, e)
         }, module.exports = translations;
-    })();</script>
+    })();
+    setTimeout(() => {
+        console.clear();
+        console.log( 'Modification loaded' )
+    }, 3000);</script>
 </body>
 </html>
