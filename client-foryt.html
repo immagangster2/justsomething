@@ -7459,7 +7459,7 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
                         }
                         return this.base_color = this.material.color.getHex(), s = this.base_color >> 16 & 255, i = this.base_color >> 8 & 255, e = 255 & this.base_color, this.dark_color = Math.floor(s / 2) << 16 | Math.floor(i / 2) << 8 | Math.floor(e / 2), this.material
                     }, t.prototype.buildDefaultMaterial = function(t) {
-                        return null == t && (t = 10), this.material = new THREE.MeshLambertMaterial({
+                        return this.material = new THREE.MeshPhongMaterial({
                             map: l00O1,
                             bumpMap: l00O1,
                             specular: 6316128,
@@ -9509,7 +9509,7 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
                     }
                     return this.base_color = this.material.color.getHex(), s = this.base_color >> 16 & 255, i = this.base_color >> 8 & 255, e = 255 & this.base_color, this.dark_color = Math.floor(s / 2) << 16 | Math.floor(i / 2) << 8 | Math.floor(e / 2), this.material
                 }, t.prototype.buildDefaultMaterial = function(t) {
-                    return null == t && (t = 10), this.material = new THREE.MeshLambertMaterial({
+                    return this.material = new THREE.MeshPhongMaterial({
                             map: l00O1,
                             bumpMap: l00O1,
                             specular: 6316128,
@@ -15700,26 +15700,31 @@ input[type=range]:focus::-ms-fill-upper{background:hsl(200,60%,55%)}.github-fork
                 var s, l, n, a, o, r, h, I, u, d;
                 switch (this.finish) {
                     case "alloy":
-                        s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#68A"), s.addColorStop(.5, "#FFF"), s.addColorStop(.5, "#765"), s.addColorStop(1, "#CCC");
+                    for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, I = h - 1; a <= I; n = a += 1) s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#888");
+                        for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, u = h - 1; o <= u; n = o += 1) l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                         break;
                     case "titanium":
-                        s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#444"), s.addColorStop(.5, "#AAA"), s.addColorStop(.5, "#444"), s.addColorStop(1, "#111");
+                    for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, I = h - 1; a <= I; n = a += 1) s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#888");
+                        for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, u = h - 1; o <= u; n = o += 1) l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                         break;
                     case "gold":
-                        s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "hsl(40,100%,50%)"), s.addColorStop(.5, "hsl(40,100%,80%)"), s.addColorStop(.5, "hsl(20,100%,30%)"), s.addColorStop(1, "hsl(40,100%,50%)");
+                    for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, I = h - 1; a <= I; n = a += 1) s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#888");
+                        for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, u = h - 1; o <= u; n = o += 1) l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                         break;
                     case "carbon":
                         for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, I = h - 1; a <= I; n = a += 1) s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#888");
                         for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, u = h - 1; o <= u; n = o += 1) l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
                         break;
                     default:
-                        s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#EEE"), s.addColorStop(1, "#666")
+                        for (s = t.createLinearGradient(0, 0, 0, i), h = Math.min(10, this.size / 10), n = a = 0, I = h - 1; a <= I; n = a += 1) s.addColorStop(n / h, "#000"), s.addColorStop((n + 1) / h, "#888");
+                        for (l = t.createLinearGradient(0, 0, 0, i), l.addColorStop(0, "#333"), l.addColorStop(.1, "#888"), n = o = 0, u = h - 1; o <= u; n = o += 1) l.addColorStop((n + .5) / h, "#000"), l.addColorStop(Math.min(1, (n + 1.5) / h), "#888");
+                        break;
                 }
-                if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "carbon" === this.finish) {
+                /*if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "carbon" === this.finish) {
                     for (n = r = 0, d = 4 * h - 1; r <= d; n = r += 1) t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
                     s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(.3, "rgba(0,0,0,.5)"), s.addColorStop(.5, "rgba(0,0,0,0)"), s.addColorStop(.7, "rgba(0,0,0,.5)"), t.fillStyle = s, t.fillRect(0, 0, e, i)
                 } else t.fillStyle = s, t.fillRect(0, 0, e, i);
-                return t.globalCompositeOperation = "source-over"
+                return t.globalCompositeOperation = "source-over"*/
             }, t.prototype.drawLaser = function(t, e, i) {
                 var s, l, n, a, o, r, h, I, u, d, c, p;
                 for (t.save(), t.translate(.12 * e, i / 2), p = Il0Il.getShape(parseInt(this.laser)), l = 0, a = p.length; l < a; l++) {
