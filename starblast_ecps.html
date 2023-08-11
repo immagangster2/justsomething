@@ -48369,26 +48369,46 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
-function changeEmoteCapacity(capacity) {
-  if (capacity >= 1 && capacity <= 5) {
-    let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
-    if (this[globalVal] && typeof this[globalVal].settings === "object") {
-      this[globalVal].settings.set("chat_emotes_capacity", capacity);
-      console.log(`Emote capacity set to: ${capacity}`);
-    } else {
-      console.error("Unable to set emote capacity. Invalid object or settings.");
-    }
-  } else {
-    console.error("Emote capacity must be between 1 and 5.");
-  }
-}
+function scrollECP (isClient) {
+  let scrolls = ["badge", "finish", "laser"], previewScrolls = [["ecpverifiedlogo", "badge"], ["shippreview", "finish"]];
 
-console.log("You can now change emote capacity using 'changeEmoteCapacity' function.");
-console.log("Usage: changeEmoteCapacity(1) - Set emote capacity to 1");
-console.log("Usage: changeEmoteCapacity(2) - Set emote capacity to 2");
-console.log("Usage: changeEmoteCapacity(3) - Set emote capacity to 3");
-console.log("Usage: changeEmoteCapacity(4) - Set emote capacity to 4");
-console.log("Usage: changeEmoteCapacity(5) - Set emote capacity to 5");
+  let fireEvent = function (element, event, isClient) {
+    event.preventDefault();
+    if (event.deltaY != 0 && element != null) {
+      let dest = element.querySelector(".fa-caret-" + (event.deltaY > 1 ? "left": "right"));
+      if (isClient) dest.dispatchEvent(new MouseEvent("mousedown"));
+      else dest.click()
+    }
+  };
+
+  for (let i = 0; i < scrolls.length; ++i) {
+    let element = document.querySelector("div[data-type=" + scrolls[i] + "]");
+    if (element != null && element.getAttribute("wheel-added") != "true") {
+      element.setAttribute("wheel-added", "true");
+      element.querySelector(".title").addEventListener('wheel', function (e) {
+        fireEvent(element, e, isClient)
+      })
+    }
+  }
+
+  for (let i = 0; i < previewScrolls.length; ++i) {
+    let element = document.querySelector("." + previewScrolls[i][0]);
+    if (element != null && element.getAttribute("wheel-added") != "true") {
+      let dest = document.querySelector("div[data-type=" + previewScrolls[i][1] + "]");
+      if (dest != null) {
+        element.setAttribute("wheel-added", "true");
+        element.addEventListener("wheel", function (e) {
+          fireEvent(dest, e, isClient)
+        });
+      }
+    }
+  }
+};
+
+
+
+
+
  </script>
  </body>
 </html>
