@@ -48361,75 +48361,33 @@
     module.exports = translations;
 })();
 
+let emoteSettings = {
+  name: "Chat Emotes Menge",
+  value: parseInt(localStorage.emoteamnt ? localStorage.emoteamnt.replace(`"`, ``) : "1"),
+  type: "range",
+  min: 1,
+  max: 5,
+  stored: true,
+};
+
 let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
 ChatPanel.prototype.getEmotesCapacity = function () {
   let num = this[globalVal].settings.get("chat_emotes_capacity");
-  try { return (num == null || isNaN(num)) ? 5 : Math.max(5, Math.trunc(num)); }
-  catch (e) { return 5; }
-};
-ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
-
-let settings = module.exports.settings.parameters, oldIDs = Object.keys(settings).reverse();
-
-let extendedOptions = {
-  chat_emotes_capacity: {
-    name: "Chat Emotes Capacity",
-    value: 4,
-    default: 4,
-    skipauto: !0,
-    type: "range",
-    min: 1,
-    max: 5,
-    [Object.keys(settings.music).find(v => v.match(/^[0OIl1]+$/))]: 1,
-    filter: "default,app,mobile"
+  try {
+    return num == null || isNaN(num) ? emoteSettings.max : Math.max(emoteSettings.min, Math.trunc(num));
+  } catch (e) {
+    return emoteSettings.max;
   }
 };
+ChatPanel.prototype.typed = Function(
+  "return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()")
+)();
 
-Object.assign(module.exports.settings.parameters, extendedOptions);
+let settings = module.exports.settings.parameters;
+settings.emoteamnt = emoteSettings;
 
-for (let i of Object.keys(extendedOptions)) {
-  let data, localData = localStorage.getItem(i);
-  try { data = localData == null ? extendedOptions[i].default : JSON.parse(localData) } catch (e) { continue }
-  module.exports.settings.set(i, data)
-}
+let oldIDs = Object.keys(settings).reverse();
 
-for (let i in window) try {
-  let val = window[i].prototype;
-  if ("function" == typeof val.propertyChanged) {
-    let oldVal = val.propertyChanged;
-    val.propertyChanged = function (t, e) {
-      switch (t) {
-        case "explosions": {
-          let exp = document.querySelector("#explolight");
-          if (exp != null) exp.disabled = !e;
-          break;
-        }
-        case "chat_emotes_capacity": {
-          let alternative = document.querySelector("#chat_emotes_capacity-value");
-          if (alternative != null) alternative.innerText = e;
-          break;
-        }
-        default:
-          oldVal.apply(this, arguments)
-      }
-    };
-    break;
-  }
-} catch (e) {};
-
-function decorateSettings () {
-  if (a == null) return;
-
-
-  let emotes = document.querySelector("#chat_emotes_capacity_value"), alternative = document.querySelector("#chat_emotes_capacity-value");
-  if (alternative == null && emotes != null) {
-    emotes.setAttribute("style", "display: none");
-    alternative = document.createElement("span");
-    alternative.setAttribute("id", "chat_emotes_capacity-value");
-    alternative.innerText = module.exports.settings.check("chat_emotes_capacity");
-    emotes.after(alternative);
-  }
-};
 
 
 
