@@ -48362,21 +48362,38 @@
 })();
 
 let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
+
+// Emote-Kapazität abrufen
 ChatPanel.prototype.getEmotesCapacity = function () {
   let num = this[globalVal].settings.get("chat_emotes_capacity");
-  try { return (num == null || isNaN(num)) ? 5 : Math.max(5, Math.trunc(num)); }
-  catch (e) { return 5; }
-};
-ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
-
-window.module.exports.settings.parameters.getEmotesCapacity = {
-    name:`Chat emotes amount`,
-    value: parseInt(localStorage.emoteamnt.replace(`"`,``)),
-    type: "range",
-    min: 1,
-    max: 5,
-    stored: true
+  try {
+    return (num == null || isNaN(num)) ? 5 : Math.max(5, Math.trunc(num));
+  } catch (e) {
+    return 5;
   }
+};
+
+// Funktion zur Aktualisierung der Emote-Kapazität
+ChatPanel.prototype.updateEmotesCapacity = function () {
+  let newValue = parseInt(localStorage.emoteamnt.replace(`"`, ""));
+  if (!isNaN(newValue)) {
+    this[globalVal].settings.set("chat_emotes_capacity", newValue);
+  }
+};
+
+// Emote-Kapazität in den Einstellungen hinzufügen
+window.module.exports.settings.parameters.getEmotesCapacity = {
+  name: `Chat emotes amount`,
+  value: parseInt(localStorage.emoteamnt.replace(`"`, "")),
+  type: "range",
+  min: 1,
+  max: 5,
+  stored: true,
+  onchange: function (newValue) {
+    localStorage.emoteamnt = newValue;
+    ChatPanel.instance.updateEmotesCapacity();
+  }
+};
 
 
 
