@@ -10814,11 +10814,6 @@
             if (null != this.chat_bubble)
                 return this.chat_bubble.setHue(t)
         },
-        t.prototype.chatamnt = function () {
-            if(localStorage.getItem("emoteamnt") == null){
-            localStorage.setItem("emoteamnt", 5);
-            }
-        },
         t.prototype.l11ll = function () {
             if (null != this.OOlOI.display && (this.OOlOI.display.width !== this.width || this.OOlOI.display.height !== this.height) && (this.width = this.OOlOI.display.width, this.height = this.OOlOI.display.height, this.O1II0 = new THREE.PerspectiveCamera(45, this.width / this.height, 1, 1e3), this.O1II0.position.z = 70, this.welcome))
                 return this.O1II0.position.z = 140
@@ -48365,6 +48360,16 @@
     },
     module.exports = translations;
 })();
+
+let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
+ChatPanel.prototype.getEmotesCapacity = function () {
+  let num = this[globalVal].settings.get("chat_emotes_capacity");
+  try { return (num == null || isNaN(num)) ? 4 : (Math.trunc(Math.min(Math.max(1, num), 5)) || 4) }
+  catch (e) { return 4 }
+};
+ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
+
+
  </script>
  </body>
 </html>
