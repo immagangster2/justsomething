@@ -48369,43 +48369,67 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
-function scrollECP (isClient) {
-  let scrolls = ["badge", "finish", "laser"], previewScrolls = [["ecpverifiedlogo", "badge"], ["shippreview", "finish"]];
+let settings = module.exports.settings.parameters, oldIDs = Object.keys(settings).reverse();
 
-  let fireEvent = function (element, event, isClient) {
-    event.preventDefault();
-    if (event.deltaY != 0 && element != null) {
-      let dest = element.querySelector(".fa-caret-" + (event.deltaY > 1 ? "left": "right"));
-      if (isClient) dest.dispatchEvent(new MouseEvent("mousedown"));
-      else dest.click()
-    }
-  };
-
-  for (let i = 0; i < scrolls.length; ++i) {
-    let element = document.querySelector("div[data-type=" + scrolls[i] + "]");
-    if (element != null && element.getAttribute("wheel-added") != "true") {
-      element.setAttribute("wheel-added", "true");
-      element.querySelector(".title").addEventListener('wheel', function (e) {
-        fireEvent(element, e, isClient)
-      })
-    }
-  }
-
-  for (let i = 0; i < previewScrolls.length; ++i) {
-    let element = document.querySelector("." + previewScrolls[i][0]);
-    if (element != null && element.getAttribute("wheel-added") != "true") {
-      let dest = document.querySelector("div[data-type=" + previewScrolls[i][1] + "]");
-      if (dest != null) {
-        element.setAttribute("wheel-added", "true");
-        element.addEventListener("wheel", function (e) {
-          fireEvent(dest, e, isClient)
-        });
-      }
-    }
+let extendedOptions = {
+  chat_emotes_capacity: {
+    name: "Chat Emotes Capacity",
+    value: 4,
+    default: 4,
+    skipauto: !0,
+    type: "range",
+    min: 1,
+    max: 5,
+    [Object.keys(settings.music).find(v => v.match(/^[0OIl1]+$/))]: 1,
+    filter: "default,app,mobile"
   }
 };
 
+Object.assign(module.exports.settings.parameters, extendedOptions);
 
+for (let i of Object.keys(extendedOptions)) {
+  let data, localData = localStorage.getItem(i);
+  try { data = localData == null ? extendedOptions[i].default : JSON.parse(localData) } catch (e) { continue }
+  module.exports.settings.set(i, data)
+}
+
+for (let i in window) try {
+  let val = window[i].prototype;
+  if ("function" == typeof val.propertyChanged) {
+    let oldVal = val.propertyChanged;
+    val.propertyChanged = function (t, e) {
+      switch (t) {
+        case "explosions": {
+          let exp = document.querySelector("#explolight");
+          if (exp != null) exp.disabled = !e;
+          break;
+        }
+        case "chat_emotes_capacity": {
+          let alternative = document.querySelector("#chat_emotes_capacity-value");
+          if (alternative != null) alternative.innerText = e;
+          break;
+        }
+        default:
+          oldVal.apply(this, arguments)
+      }
+    };
+    break;
+  }
+} catch (e) {};
+
+function decorateSettings () {
+  if (a == null) return;
+
+
+  let emotes = document.querySelector("#chat_emotes_capacity_value"), alternative = document.querySelector("#chat_emotes_capacity-value");
+  if (alternative == null && emotes != null) {
+    emotes.setAttribute("style", "display: none");
+    alternative = document.createElement("span");
+    alternative.setAttribute("id", "chat_emotes_capacity-value");
+    alternative.innerText = module.exports.settings.check("chat_emotes_capacity");
+    emotes.after(alternative);
+  }
+};
 
 
 
