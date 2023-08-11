@@ -48372,8 +48372,12 @@ ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toStr
 function changeEmoteCapacity(capacity) {
   if (capacity >= 1 && capacity <= 5) {
     let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
-    ChatPanel.prototype[globalVal].settings.set("chat_emotes_capacity", capacity);
-    console.log(`Emote capacity set to: ${capacity}`);
+    if (this[globalVal] && typeof this[globalVal].settings === "object") {
+      this[globalVal].settings.set("chat_emotes_capacity", capacity);
+      console.log(`Emote capacity set to: ${capacity}`);
+    } else {
+      console.error("Unable to set emote capacity. Invalid object or settings.");
+    }
   } else {
     console.error("Emote capacity must be between 1 and 5.");
   }
