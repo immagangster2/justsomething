@@ -48369,27 +48369,14 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
-// Funktion zur Aktualisierung der Emote-Kapazität
-ChatPanel.prototype.updateEmotesCapacity = function () {
-  let newValue = parseInt(this[globalVal].settings.get("chat_emotes_capacity"));
-  if (!isNaN(newValue)) {
-    localStorage.chat_emotes_capacity = newValue;
-  }
-};
-
-// Emote-Kapazität in den Einstellungen hinzufügen
 window.module.exports.settings.parameters.chat_emotes_capacity = {
-  name: `Chat emotes capacity`,
-  value: parseInt(localStorage.chat_emotes_capacity || "2"),
-  type: "range",
-  min: 1,
-  max: 5,
-  stored: true,
-  onchange: function (newValue) {
-    localStorage.chat_emotes_capacity = newValue;
-    ChatPanel.instance.updateEmotesCapacity();
+    name:`Chat emotes amount`,
+    value: parseInt(localStorage.emoteamnt.replace(`"`,``)),
+    type: "range",
+    min: 1,
+    max: 5,
+    stored: true
   }
-};
 
 
 
