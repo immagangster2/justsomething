@@ -2405,7 +2405,6 @@
     <div id="canvaswrapper"></div>
     <div id="overlay">
         <div id="preroll"></div>
-        <div class="adblock frozenbg"><span data-translate="Your ad-blocker may cause connection problems. Please disable it on Starblast.io to avoid any trouble.">Your ad-blocker may cause connection problems. Please disable it on Starblast.io to avoid any trouble.</span></div>
         <div class="top-right">
             <div class="accw-new" data-translate-base="acw_new" lang="en">
                 <div class="alphacentauri">
@@ -2643,7 +2642,6 @@
     <script>var cgactive = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blockadblock/3.2.1/blockadblock.min.js" integrity="sha256-3zU5Lr4nIt3K/BgGOQMduajtZcPV9elIM/23RDXRp3o=" crossorigin="anonymous"></script>
     <script src="https://starblast.io/static/js/atcb.min.js"></script>
     <script>
         var sdflogo = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="152" height="172" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M70.396,0l19.067,41.667l39.802,16.534l10.705,-10.902l-6.012,35.024l-49.189,4.642l-5.533,8.866l-13.582,0.115l-5.98,-8.104l-48.561,-5.646l-3.529,-33.562l10.259,10.495l36.551,-16.657l16.002,-42.472Z" style="fill:#fff;"/><path d="M129.294,79.457l-127.22,73.318l26.274,-2.885l-16.027,20.667l127.22,-73.319l6.128,-15.684l-16.375,-2.097Z" style="fill:#fff;"/><path d="M142.63,152.687l-127.212,-73.331l-15.418,3.391l5.169,14.39l127.212,73.331l-15.942,-20.335l26.191,2.554Z" style="fill:#fff;"/></svg>' ;
@@ -3068,7 +3066,7 @@
         t.drawImage(e, 0, 0),
         i.toBlob(function (t) {
             var e = new Date;
-            saveAs(t, "starblast-" + e.getTime() + ".png")
+            saveAs(t, "boring-game-" + e.getTime() + ".png")
         }, "image/png", 1)
     },
     module = {},
@@ -4161,7 +4159,7 @@
         }
         return extend(i, e),
         i.prototype.updateHue = function (t) {
-            return this.hue = t,
+            return this.hue = 1, 1,
             this.IIO0l = !0
         },
         i.prototype.updateScore = function (t) {
@@ -31567,6 +31565,16 @@
                     value: !1,
                     filter: "app"
                 },
+                chat_emotes_capacity: {
+                    name: "Chat Emotes Capacity",
+                    value: 4,
+                    default: 4,
+                    skipauto: !0,
+                    type: "range",
+                    min: 1,
+                    max: 5,
+                    filter: "default,app,mobile"
+                },
                 sounds: {
                     name: "Sound Effects",
                     value: 1,
@@ -48369,16 +48377,74 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
-window.module.exports.settings.parameters.chat_emotes_capacity = {
-    name:`Chat emotes amount`,
-    value: parseInt(localStorage.emoteamnt.replace(`"`,``)),
-    type: "range",
-    min: 1,
-    max: 5,
-    stored: true
+
+for (let i in window) try {
+  let val = window[i].prototype;
+  if ("function" == typeof val.propertyChanged) {
+    let oldVal = val.propertyChanged;
+    val.propertyChanged = function (t, e) {
+      switch (t) {
+        case "chat_emotes_capacity": {
+          let alternative = document.querySelector("#chat_emotes_capacity-value");
+          if (alternative != null) alternative.innerText = e;
+          break;
+        }
+        default:
+          oldVal.apply(this, arguments)
+      }
+    };
+    break;
+  }
+} catch (e) {};
+
+function decorateSettings () {
+  let a = document.querySelector("#set-settings");
+  let allOptions = [...document.querySelectorAll(".option")];
+
+  if (a == null) return;
+
+  let emotes = document.querySelector("#chat_emotes_capacity_value"), alternative = document.querySelector("#chat_emotes_capacity-value");
+  if (alternative == null && emotes != null) {
+    emotes.setAttribute("style", "display: none");
+    alternative = document.createElement("span");
+    alternative.setAttribute("id", "chat_emotes_capacity-value");
+    alternative.innerText = module.exports.settings.check("chat_emotes_capacity");
+    emotes.after(alternative);
   }
 
 
+};
+
+
+let pattern = /,(\s*"blank"\s*!={1,2}\s*this\.custom\.badge)/;
+
+Search: for (let i in window) try {
+  let val = window[i].prototype;
+  for (let j in val) {
+    let func = val[j];
+    if ("function" == typeof func && func.toString().match(pattern)) {
+      val[j] = Function("return " + func.toString().replace(pattern, ", window.module.exports.settings.check('show_blank_badge') || $1"))();
+      found = true;
+      val.drawIcon = Function("return " + val.drawIcon.toString().replace(/}\s*else\s*{/, '} else if (this.icon !== "blank") {'))();
+      let gl = window[i];
+      for (let k in gl) {
+        if ("function" == typeof gl[k] && gl[k].toString().includes(".table")) {
+          let oldF = gl[k];
+          gl[k] = function () {
+            let current = window.module.exports.settings.check('show_blank_badge');
+            if (this.showBlank !== current) {
+              for (let i in this.table) if (i.startsWith("blank")) delete this.table[i];
+              this.showBlank = current;
+            }
+            return oldF.apply(this, arguments)
+          };
+          break Search;
+        }
+      }
+    }
+  }
+}
+catch (e) {}
 
  </script>
  </body>
