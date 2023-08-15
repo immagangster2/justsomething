@@ -466,18 +466,6 @@
                 background: rgba(0,0,0,.5)
             }
 
-            .warning {
-                position: fixed;
-                box-sizing: border-box;
-                top: 60px;
-                right: 0;
-                left: 0;
-                padding: 6px 20px;
-                height: 30px;
-                font-family: sans-serif;
-                background: hsl(0,50%,50%)
-            }
-
             .centerpanel {
                 position: fixed;
                 top: 90px;
@@ -1207,10 +1195,6 @@
       
             </div>
             <div class="footer"></div>
-            <div class="warning">
-                <i class="fa fa-warning"></i>
-                <span>Copying / pasting code from untrusted sources is dangerous.</span>
-            </div>
             <div class="centerpanel">
                 <div class="editorpanel">
                     <div class="iconsbar editoriconsbar">
@@ -6872,6 +6856,9 @@
                 case "greencarbon":
                     this.buildgreenCarbonMaterial();
                     break;
+                case "bluecarbon":
+                    this.buildblueCarbonMaterial();
+                    break;
                 case "copperr":
                     this.buildCopperMaterial();
                     break;
@@ -6993,7 +6980,7 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 1052688,
-                    emissive: IOl01.hsvToRgbHex(this.hue, .5, 1),
+                    emissive: IOl01.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: OIOIl
                 })
             },
@@ -7005,7 +6992,19 @@
                     shininess: 5,
                     bumpScale: .1,
                     color: 4577877,
-                    emissive: IOl01.hsvToRgbHex(this.hue, .5, 1),
+                    emissive: IOl01.hsvToRgbHex(this.hue, 1, 1),
+                    emissiveMap: OIOIl
+                })
+            },
+            e.prototype.buildblueCarbonMaterial = function () {
+                return this.material = new THREE.MeshPhongMaterial({
+                    map: IOI10,
+                    bumpMap: IOI10,
+                    specular: 6316128,
+                    shininess: 5,
+                    bumpScale: .1,
+                    color: 18431,
+                    emissive: IOl01.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: OIOIl
                 })
             },
@@ -7163,13 +7162,13 @@
                     side: THREE.DoubleSide,
                     bumpScale: 1,
                     transparent: !0,
-                    precision:10,
-                    reflectivity:1,
+                    precision: 10,
+                    reflectivity: 1,
                     color: 'rgba(25,25,112,1)',
-                    emissive: IOl01.hsvToRgbHex(this.hue, .5, 1),
+                    emissive: IOl01.hsvToRgbHex(this.hue, 0.5, 1),
                     emissiveMap: O00IO,
                     lightMap: 'rgba(10,10,127,1)',
-                    metalness:1,
+                    metalness: 1,
                     metalnessMap: 'rgba(13,13,156,1)'
                 });
             },
@@ -8562,6 +8561,7 @@
                             gold: "Gold",
                             carbon: "Carbon",
                             greencarbon: "Green Carbon",
+                            bluecarbon: "Blue Carbon",
                             copperr: "Copper",
                             diamondd: "Diamond",
                             x277: "Electric Blue",
@@ -8660,7 +8660,7 @@
                         this.dragging = !1,
                         this.O0111(),
                         this.material_index = 0,
-                        this.materials = ["zinc", "alloy", "carbon", "titanium", "gold", "x277", "greencarbon", "copperr", "diamondd", "fullcolorrr", "fullcolorr", "midnightbluee", "violett", "seaa", "onyxx", "cloudd", "sapphiree", "emeraldd", "emeraldd", "transparentt", "silverr", "uraniumm", "bronzee", "rubyy"],
+                        this.materials = ["zinc", "alloy", "carbon", "titanium", "gold", "x277", "greencarbon", "bluecarbon", "copperr", "diamondd", "fullcolorrr", "fullcolorr", "midnightbluee", "violett", "seaa", "onyxx", "cloudd", "sapphiree", "emeraldd", "emeraldd", "transparentt", "silverr", "uraniumm", "bronzee", "rubyy"],
                         this.model_index = 0,
                         this.hue = 0,
                         i = llll1.O0lII,
