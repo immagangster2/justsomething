@@ -33939,16 +33939,6 @@
         }, module.exports = translations;
     })();
     
-    
-    
-let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
-ChatPanel.prototype.getEmotesCapacity = function () {
-  let num = this[globalVal].settings.get("chat_emotes_capacity");
-  try { return (num == null || isNaN(num)) ? 5 : Math.max(5, Math.trunc(num)); }
-  catch (e) { return 5; }
-};
-ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
-    
     </script>
 </body>
 </html>
