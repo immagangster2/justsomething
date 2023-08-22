@@ -15378,14 +15378,6 @@
             t.prototype.createModel = function () {
                 return new CrystalModel
             },
-            t.prototype.getModelInstance = function (t) {
-                var e,
-                i;
-                return i = t % this.models.length,
-                e = this.OOlOI.settings.check("colorblind") ? t : t,
-                this.material.color.set(e),
-                new THREE.Mesh(this.models[i].geometry, this.material)
-            },
             t
         }
             (), this.Collectible = function () {
@@ -31529,24 +31521,9 @@
                     level: 4,
                     filter: "default,app"
                 },
-                snow: {
-                    name: "Snow",
-                    value: !1,
-                    level: 4
-                },
                 gravity_field: {
                     name: "Display gravity field",
                     value: !0,
-                    filter: "default,app"
-                },
-                colorblind: {
-                    name: "High Contrast",
-                    value: !1,
-                    filter: "default,app,mobile"
-                },
-                buttons_disabled: {
-                    name: "Button clicks disabled",
-                    value: !1,
                     filter: "default,app"
                 },
                 shake: {
@@ -31564,16 +31541,6 @@
                     name: "Automatic screenshots",
                     value: !1,
                     filter: "app"
-                },
-                chat_emotes_capacity: {
-                    name: "Chat Emotes Capacity",
-                    value: 4,
-                    default: 4,
-                    skipauto: !0,
-                    type: "range",
-                    min: 1,
-                    max: 5,
-                    filter: "default,app,mobile"
                 },
                 sounds: {
                     name: "Sound Effects",
