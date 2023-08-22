@@ -2405,6 +2405,7 @@
     <div id="canvaswrapper"></div>
     <div id="overlay">
         <div id="preroll"></div>
+        <div class="adblock frozenbg"><span data-translate="Your ad-blocker may cause connection problems. Please disable it on Starblast.io to avoid any trouble.">Your ad-blocker may cause connection problems. Please disable it on Starblast.io to avoid any trouble.</span></div>
         <div class="top-right">
             <div class="accw-new" data-translate-base="acw_new" lang="en">
                 <div class="alphacentauri">
@@ -2642,6 +2643,7 @@
     <script>var cgactive = false;</script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/webfont/1.6.27/webfontloader.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blockadblock/3.2.1/blockadblock.min.js" integrity="sha256-3zU5Lr4nIt3K/BgGOQMduajtZcPV9elIM/23RDXRp3o=" crossorigin="anonymous"></script>
     <script src="https://starblast.io/static/js/atcb.min.js"></script>
     <script>
         var sdflogo = '<?xml version="1.0" encoding="UTF-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg width="152" height="172" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:1.41421;"><path d="M70.396,0l19.067,41.667l39.802,16.534l10.705,-10.902l-6.012,35.024l-49.189,4.642l-5.533,8.866l-13.582,0.115l-5.98,-8.104l-48.561,-5.646l-3.529,-33.562l10.259,10.495l36.551,-16.657l16.002,-42.472Z" style="fill:#fff;"/><path d="M129.294,79.457l-127.22,73.318l26.274,-2.885l-16.027,20.667l127.22,-73.319l6.128,-15.684l-16.375,-2.097Z" style="fill:#fff;"/><path d="M142.63,152.687l-127.212,-73.331l-15.418,3.391l5.169,14.39l127.212,73.331l-15.942,-20.335l26.191,2.554Z" style="fill:#fff;"/></svg>' ;
@@ -3066,7 +3068,7 @@
         t.drawImage(e, 0, 0),
         i.toBlob(function (t) {
             var e = new Date;
-            saveAs(t, "boring-game-" + e.getTime() + ".png")
+            saveAs(t, "starblast-" + e.getTime() + ".png")
         }, "image/png", 1)
     },
     module = {},
@@ -4159,7 +4161,7 @@
         }
         return extend(i, e),
         i.prototype.updateHue = function (t) {
-            return this.hue = 1, 1,
+            return this.hue = t,
             this.IIO0l = !0
         },
         i.prototype.updateScore = function (t) {
@@ -5494,6 +5496,17 @@
             M,
             T;
             if (this.l10O1.visible) {
+                if (f = t.getUint8(1), d = 2, g = 1, this.max_index = 1, _ = this.OOlOI.settings.check("colorblind") ? 1 : .7, null != this.OOlOI.mode.updateRadar) {
+                    for (h = c = g, v = this.size - 1; c <= v; h = c += 1)
+                        this.ll0I1[h] = 0;
+                    return this.geometry.getAttribute("position").needsUpdate = !0,
+                    this.geometry.getAttribute("color").needsUpdate = !0,
+                    this.geometry.getAttribute("ll0I1").needsUpdate = !0,
+                    this.geometry.getAttribute("time").needsUpdate = !0,
+                    this.geometry.getAttribute("oldpos").needsUpdate = !0,
+                    this.geometry.getAttribute("type").needsUpdate = !0,
+                    void this.iteration++
+                }
                 for (k = [], h = p = 0, b = f - 1; p <= b && !(g >= this.size - this.OOlOI.ll1O0.IOl1O.stations.length); h = p += 1)
                     i = !0 & t.getUint8(d + 3), u = t.getUint8(d), M = t.getInt8(d + 1) / 128, T = t.getInt8(d + 2) / 128, d += 8, n = Math.abs(M - this.material.uniforms.mypos.value.x), a = Math.abs(T - this.material.uniforms.mypos.value.y), n = Math.min(n, 2 - n), a = Math.min(a, 2 - a), s = Math.max(Math.abs(n), Math.abs(a)), this.OOlOI.ll1O0.IOl1O.llIl1[u], r = 20, r = this.hue, IlO0l.Il0IO(r / 360, .2, .8, k), z = 10 * this.OOlOI.ll1O0.height / 1e3, o = !1, null != this.friendly_colors && this.friendly_colors > 0 && null != (l = this.OOlOI.names.getData(u)) && (r = l.hue, IlO0l.Il0IO(r / 360, _, 1, k), r === this.OOlOI.ll1O0.IIO0O.status.hue && (o = !0)), u !== e && (o || 0 === h || s <= 1 / this.OOlOI.mode.radar_zoom || this.OOlOI.killers[u] || this.OOlOI.ll1O0.IOl1O.survival) && (y = this.posmap[u], this.vertices[3 * g] = M, this.vertices[3 * g + 1] = T, this.vertices[3 * g + 2] = i ? 0 : 1e3, this.type[g] = 1, 0 === h && this.OOlOI.mode.radar_shows_leader ? (IlO0l.Il0IO(30 / 360, _, 1, k), this.type[g] = 3) : h <= 9 && (this.type[g] = 1), h > 0 && (this.OOlOI.killers[u] || this.OOlOI.ll1O0.IOl1O.survival) && "survival" === this.OOlOI.mode.id && (IlO0l.Il0IO(0, _, 1, k), this.type[g] = 2), this.OOlOI.mode.isTarget(u) && (IlO0l.Il0IO(0, _, 1, k), this.type[g] = 2), null != y && y.iteration === this.iteration - 1 ? (y.x < M - 1 ? y.x += 2 : y.x > M + 1 && (y.x -= 2), y.y < T - 1 ? y.y += 2 : y.y > T + 1 && (y.y -= 2), this.oldpos[2 * g] = y.x, this.oldpos[2 * g + 1] = y.y) : (this.oldpos[2 * g] = M, this.oldpos[2 * g + 1] = T, null == y && (y = {}, this.posmap[u] = y)), y.x = M, y.y = T, y.iteration = this.iteration, this.color[3 * g] = k[0] / 255, this.color[3 * g + 1] = k[1] / 255, this.color[3 * g + 2] = k[2] / 255, this.time[g] = this.OOlOI.ll1O0.IOl1O.Ol1II, this.ll0I1[g] = z * (this.type[g] > 1 ? 2 : 1.5), g++);
                 for (w = this.OOlOI.ll1O0.IOl1O.stations, h = I = 0, O = w.length; I < O && (E = w[h], !(g >= this.size)); h = ++I)
@@ -6256,7 +6269,7 @@
             i,
             s,
             l;
-            return e = 0 === this.lives ? IlO0l.hsvToRgbHex(0, .5, 1) : IlO0l.hsvToRgbHex(this.hue, 1, 1),
+            return e = 0 === this.lives ? IlO0l.hsvToRgbHex(0, .5, 1) : IlO0l.hsvToRgbHex(this.hue, 1, .9),
             l = (e >> 16 & 255) / 255,
             i = (e >> 8 & 255) / 255,
             t = (255 & e) / 255,
@@ -6302,7 +6315,7 @@
             n,
             a,
             o;
-            for (this.hue = t, i = IlO0l.hsvToRgbHex(this.hue, 1, 1), a = (i >> 16 & 255) / 255, s = (i >> 8 & 255) / 255, e = (255 & i) / 255, l = n = 0, o = this.shield_index - 1; n <= o; l = n += 1)
+            for (this.hue = t, i = IlO0l.hsvToRgbHex(this.hue, 1, .9), a = (i >> 16 & 255) / 255, s = (i >> 8 & 255) / 255, e = (255 & i) / 255, l = n = 0, o = this.shield_index - 1; n <= o; l = n += 1)
                 10 !== l && (this.color[3 * l] = a, this.color[3 * l + 1] = s, this.color[3 * l + 2] = e);
             return this.geometry.getAttribute("color").needsUpdate = !0
         },
@@ -6449,7 +6462,7 @@
                     this.geometry.getAttribute("fill").needsUpdate = !0
                 }
                 return this.shield === Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield) && this.shield_max === this.OOlOI.ll1O0.IIO0O.instance.shield_capacity || (this.shield > 0 && 0 === Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield) && this.OOlOI.IIO0O.status.alive && this.OOlOI.ll1O0.IOl1O.Ol1II - this.last_shield_warning > 300 && (this.OOlOI.message(t("Warning: Shield disabled"), "#8FF"), this.last_shield_warning = this.OOlOI.ll1O0.IOl1O.Ol1II), this.shield = Math.floor(this.OOlOI.ll1O0.IIO0O.status.shield), this.shield_max = this.OOlOI.ll1O0.IIO0O.instance.shield_capacity, this.setBar(this.shield_index, this.shield, this.shield_max)),
-                this.ll0O0 !== this.OOlOI.ll1O0.IIO0O.status.ll0O0 && (r = this.OOlOI.IIO0O.type.level, this.ll0O0 < 5 * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 5 * r && !this.OOlOI.IIO0O.instance.allMaxed() && OIIOl.levelUpgrades(r) && this.OOlOI.mode.showUpgrades() && this.OOlOI.message(t("Upgrades unlocked"), "#9cf793", !0), this.ll0O0 < 20 * r * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 20 * r * r && this.lvl < 6 && this.OOlOI.mode.shipCanUpgrade() && this.OOlOI.message(t("Ship Upgrade"), "#FFF"), this.ll0O0 = this.OOlOI.ll1O0.IIO0O.status.ll0O0, this.setBar(this.crystal_index, this.ll0O0, this.OOlOI.ll1O0.IIO0O.instance.crystals_capacity)),
+                this.ll0O0 !== this.OOlOI.ll1O0.IIO0O.status.ll0O0 && (r = this.OOlOI.IIO0O.type.level, this.ll0O0 < 5 * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 5 * r && !this.OOlOI.IIO0O.instance.allMaxed() && OIIOl.levelUpgrades(r) && this.OOlOI.mode.showUpgrades() && this.OOlOI.message(t("Upgrades unlocked"), "#F88", !0), this.ll0O0 < 20 * r * r && this.OOlOI.ll1O0.IIO0O.status.ll0O0 >= 20 * r * r && this.lvl < 6 && this.OOlOI.mode.shipCanUpgrade() && this.OOlOI.message(t("Ship Upgrade"), "#FFF"), this.ll0O0 = this.OOlOI.ll1O0.IIO0O.status.ll0O0, this.setBar(this.crystal_index, this.ll0O0, this.OOlOI.ll1O0.IIO0O.instance.crystals_capacity)),
                 i = !1,
                 this.OOlOI.ll1O0.IIO0O.isPulseType() && (i = Math.floor(this.OOlOI.ll1O0.IIO0O.status.generator) < this.OOlOI.ll1O0.IIO0O.pulsePower(), this.generator_depleted && this.OOlOI.ll1O0.IOl1O.Ol1II < this.OOlOI.ll1O0.IIO0O.last_pulse_shot + 60 / this.OOlOI.ll1O0.IIO0O.pulseRate() && (i = !0)),
                 this.generator_depleted !== i && (this.generator_depleted = i, i ? this.setBarColor(this.generator_index, .5, .45, .25) : (this.OOlOI.IIO0O.IOOO0.I1OII || this.OOlOI.IO011.beep(2, .25), this.setBarColor(this.generator_index, 1, .9, .5))),
@@ -11063,7 +11076,7 @@
                             z: m,
                             OIl01: t.O0II1.status.OIl01,
                             IlIOO: t.O0II1.status.IlIOO,
-                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, .5, 1),
+                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, 1, 1),
                             type: 0,
                             angle: e + (Math.random() - .5) * n.type.error / 180 * (180 * THREE.Math.DEG2RAD),
                             speed: n.speed,
@@ -11317,7 +11330,7 @@
                             z: m,
                             OIl01: t.O0II1.status.OIl01,
                             IlIOO: t.O0II1.status.IlIOO,
-                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, .5, 1),
+                            Il01I: IlO0l.hsvToRgbHex(t.shipmodel.hue, 1, 1),
                             type: 0,
                             angle: e + (Math.random() - .5) * n.type.error / 180 * (180 * THREE.Math.DEG2RAD),
                             speed: n.speed,
@@ -15299,7 +15312,7 @@
             },
             t
         }
-        (), this.CrystalModel = function () {
+            (), this.CrystalModel = function () {
             function t(t) {
                 var e,
                 i,
@@ -15321,10 +15334,10 @@
                 for (this.OOlOI = t, this.IOl0I = new THREE.Group, this.IOl0I.position.set(0, 0, -1), this.crystals_by_id = [], this.ll0O0 = [], this.models = [], e = i = 1; i <= 10; e = i += 1)
                     this.models.push(this.createModel(e));
                 this.material = new THREE.MeshPhongMaterial({
-                    color: 16711680,
-                    opacity: .7,
-                    specular: 16744576,
+                    specular: 61440,
                     shininess: 30,
+                    color: 65280,
+                    opacity: .7,
                     transparent: !0,
                     side: THREE.DoubleSide,
                     shading: THREE.FlatShading,
@@ -16001,7 +16014,7 @@
                     o = D[w], o.vertexNormals[0] = o.normal, o.vertexNormals[1] = o.normal, o.vertexNormals[2] = o.normal;
                 if (this.IOl0I = new THREE.Group, this.IOl0I.rotation.order = "ZYX", this.O1lO0 = this.IIOOO(), this.ll0I0 = new THREE.Mesh(this.geometry, this.O1lO0), this.llOlI = 0, this.options.propulsion) {
                     z = new THREE.Geometry,
-                    a = IlO0l.Il0IO(this.hue, .5, 1),
+                    a = IlO0l.Il0IO(this.hue, 1, 1),
                     this.l11I1 = new THREE.MeshBasicMaterial({
                         color: new THREE.Color(a[0] / 255, a[1] / 255, a[2] / 255),
                         opacity: 1,
@@ -16493,7 +16506,7 @@
             t.prototype.IIIl1 = function (t) {
                 var e,
                 i;
-                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.dark_color), this.options.shield && (this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0)) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.options.shield && (this.shield_mesh.visible = !0), 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.dark_color), this.options.shield && this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)))), this.bumping && (t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))), this.last_frame = t, this.bump_shield && this.options.shield)
+                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.options.shield && (this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0)) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.options.shield && (this.shield_mesh.visible = !0), 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.options.shield && this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.options.shield && this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.options.shield && (this.shield_mesh.visible = !1), this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)))), this.bumping && (t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))), this.last_frame = t, this.bump_shield && this.options.shield)
                     return t > this.bump_shield_frame + 30 ? (this.bump_shield = !1, this.shield_mesh.scale.set(1.2, 1.2, 1.2)) : (i = Math.max(0, t - this.bump_shield_frame) / 30, e = 1.2 - .1 * Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.shield_mesh.scale.set(e, e, e), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, Math.pow(1 - i, .25))), this.shield_mesh.visible = !0)
             },
             t.prototype.bumpShield = function () {
@@ -19562,7 +19575,7 @@
                 n;
                 return l = 2 * this.model.data.size,
                 this.pop < 30 ? (this.pop++, s = Math.sqrt(this.pop / 30) * l, this.IOl0I.scale.set(s, s, s)) : this.IOl0I.scale.set(l, l, l),
-                this.IOl1O.Ol1II % 30 < 15 ? this.model.material.emissive.set(IlO0l.hsvToRgbHex(this.model.hue, .5, 1)) : this.model.material.emissive.set(0),
+                this.IOl1O.Ol1II % 30 < 15 ? this.model.material.emissive.set(IlO0l.hsvToRgbHex(this.model.hue, 1, 1)) : this.model.material.emissive.set(0),
                 n = this.IOl1O.Ol1II / 60 * 1e3,
                 t = 4 * (137 * this.id % 100 + 2e3),
                 e = 4 * (this.id % 100 + 2190),
@@ -19763,7 +19776,7 @@
                     break;
                 case "Nebulium":
                     this.buildNebuliumMaterial();
-                    break;    
+                    break;
                 case "transparentt":
                     this.buildTransparentMaterial();
                     break;
@@ -20149,7 +20162,7 @@
             t.prototype.IIIl1 = function (t) {
                 var e,
                 i;
-                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.shield_mesh.visible = !0, 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)))), this.bumping)
+                if (this.built_material !== this.finish && (this.IIOOO(this.hue), this.ll0I0.material = this.material), this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.invulnerable ? Date.now() % 500 < 250 ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.shield_mesh.visible = !0) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)) : this.IO00l > 0 && (this.O1IlI = Math.random() < this.IO00l ? 1 : 0, this.shield_mesh.visible = !0, 1 === this.O1IlI ? (this.material.emissive.setHex(IlO0l.hsvToRgbHex(this.hue, 1, .5)), this.material.color.setHex(this.dark_color), this.shield_mat.color.setHex(IlO0l.hsvToRgbHex(this.hue, 1, 1))) : (this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, 1, 1)), this.material.color.setHex(this.base_color), this.shield_mat.color.setHex(0)), this.IO00l *= .95, this.IO00l < .1 && (this.IO00l = 0, this.shield_mesh.visible = !1, this.material.color.setHex(this.base_color), this.material.emissive.set(IlO0l.hsvToRgbHex(this.hue, .5, 1)))), this.bumping)
                     return t > this.bumpframe + 30 ? (this.bumping = !1, this.IOl0I.scale.set(2 * this.data.size, 2 * this.data.size, 2 * this.data.size)) : (i = Math.max(0, t - this.bumpframe) / 30, e = 1.5 - Math.cos(Math.pow(i, .5) * (180 * THREE.Math.DEG2RAD) * 2), this.IOl0I.scale.set(2 * this.data.size * e, 2 * this.data.size * e, 2 * this.data.size * e))
             },
             t.prototype.getTextureIndex = function (t, e) {
@@ -21843,7 +21856,7 @@
             this.rotate_mines = !1,
             this.radar_zoom = 2,
             this.soundtrack = "procedurality.mp3",
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.OI1OO = !0,
             this.anonymous_ships = !1,
             this.spectate = !1,
@@ -21863,9 +21876,9 @@
                 return setTimeout(function (e) {
                     return function () {
                         return e.getInstructor().setHue(e.OOlOI.ll1O0.IIO0O.status.hue),
-                        e.getInstructor().say(t("Welcome Commander.")),
-                        e.getInstructor().say(""),
-                        e.getInstructor().say(t("Your ship is fitted with a strafe module. Use [A] to strafe to the left, [D] to strafe to the right."))
+                        e.getInstructor().say(t("Noooo Bro")),
+                        e.getInstructor().say("Your ship is fitted with a shitty module."),
+                        e.getInstructor().say(t("Use [A] to strafe to the left, [D] to strafe to the right."))
                     }
                 }
                     (this), 1e3), setTimeout(function (e) {
@@ -22011,7 +22024,6 @@
             this.OOlOI = e,
             i.IIl0l.constructor.call(this, "survival", "Survival Mode"),
             this.max_enter_time = 1800,
-            this.radar_shows_leader = !0,
             this.radar_zoom = 4,
             this.soundtrack = "procedurality.mp3",
             this.max_enter_players = 50,
@@ -22038,7 +22050,7 @@
                 { text: "Me", icon: "O", key: "E" },
                 { text: "Discord", icon: "{", key: "D" },
             ],
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.tips_test = "Destroy asteroids",
             this.tips = [t("Destroy asteroids"), t("Kill EOT, NUB and other cheaters"), t("Fight and don't die!"), t("Stand against Cheaters")]
         }
@@ -22158,7 +22170,7 @@
             this.radar_shows_leader = !0,
             this.rotate_mines = !0,
             this.restricted_weapons_store = !0,
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.vocabulary = [
               { text: "You", icon: "N", key: "O" },
               { text: "Me", icon: "O", key: "E" },
@@ -22407,7 +22419,7 @@
         i.prototype.shipUpgradeLockedMessage = function () {
             var e,
             i;
-            return this.shipCanUpgrade() ? null : this.OOlOI.ll1O0.IIO0O.type.level >= this.options.max_level ? null : (i = this.team.station_model.level, e = this.team.station_model.ll0O0 >= this.team.station_model.crystals_max, 6 === this.OOlOI.ll1O0.IIO0O.type.level && i >= 3 && !e ? t("Fill station to unlock hightest ship tier Dumbass") : this.OOlOI.ll1O0.IIO0O.type.level > i + 2 && this.OOlOI.ll1O0.IIO0O.type.level < 7 ? t("Upgrade station to unlock higher ship tiers Dumbass") : null)
+            return this.shipCanUpgrade() ? null : this.OOlOI.ll1O0.IIO0O.type.level >= this.options.max_level ? null : (i = this.team.station_model.level, e = this.team.station_model.ll0O0 >= this.team.station_model.crystals_max, 6 === this.OOlOI.ll1O0.IIO0O.type.level && i >= 3 && !e ? t("Fill station to unlock new ship tiers") : this.OOlOI.ll1O0.IIO0O.type.level > i + 2 && this.OOlOI.ll1O0.IIO0O.type.level < 7 ? t("Upgrade station to unlock new ship tiers") : null)
         },
         i.prototype.updateStations = function (t) {
             var e,
@@ -23173,7 +23185,7 @@
             this.max_enter_time = 3600,
             this.max_enter_players = 10,
             this.soundtrack = "argon.mp3",
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.pro = !1,
             this.anonymous_ships = !0,
@@ -24309,7 +24321,7 @@
             this.max_enter_time = 120,
             this.max_enter_players = 30,
             this.soundtrack = "crystals.mp3",
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.OI1OO = !1,
             this.anonymous_ships = !1,
             this.radar_shows_leader = !1,
@@ -25118,7 +25130,7 @@
             this.ship_can_buy_life = !1,
             this.show_upgrades = !1,
             this.disable_ship_upgrade_collapsing = !0,
-            this.respawn_delay = 3e3,
+            this.respawn_delay = 1,
             this.sharing_enabled = !1,
             this.OI1OO = !1,
             this.tips_test = "You will learn everything about controlling your ship, upgrading, using secondary weapons, comms.",
@@ -26451,9 +26463,9 @@
             i = {};
             for (e in t)
                 s = t[e], e = e.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"), "string" == typeof s && (s = s.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")), i[e] = s;
-            return this.respawn_delay = 3e3,
+            return this.respawn_delay = 1,
             this.OOlOI.killed(0, t.gameover, i),
-            this.respawn_delay = 3e3
+            this.respawn_delay = 1
         },
         e.prototype.updateScore = function (t) {
             if (null != this.scoreboard)
@@ -31519,9 +31531,24 @@
                     level: 4,
                     filter: "default,app"
                 },
+                snow: {
+                    name: "Snow",
+                    value: !1,
+                    level: 4
+                },
                 gravity_field: {
                     name: "Display gravity field",
                     value: !0,
+                    filter: "default,app"
+                },
+                colorblind: {
+                    name: "High Contrast",
+                    value: !1,
+                    filter: "default,app,mobile"
+                },
+                buttons_disabled: {
+                    name: "Button clicks disabled",
+                    value: !1,
                     filter: "default,app"
                 },
                 shake: {
@@ -31529,6 +31556,16 @@
                     value: !0,
                     skipauto: !0,
                     filter: "default,app,mobile"
+                },
+                gamepad_control: {
+                    name: "Gamepad support",
+                    value: !1,
+                    filter: "app,mobile"
+                },
+                automatic_screenshots: {
+                    name: "Automatic screenshots",
+                    value: !1,
+                    filter: "app"
                 },
                 sounds: {
                     name: "Sound Effects",
@@ -31556,6 +31593,16 @@
                     type: "select",
                     options: ["en", "fr", "de", "es", "pl", "ru", "hu", "ja", "pt", "hr", "tr", "cs", "sk", "id", "nl", "it", "zh", "zh-tw", "da", "ar", "sv", "ro", "lt", "az", "th", "he", "ko", "fa", "el"],
                     filter: "default,app,mobile"
+                },
+                joystick_thrust: {
+                    name: "Joystick thrust",
+                    value: !1,
+                    filter: "mobile"
+                },
+                auto_rcs: {
+                    name: "Auto RCS",
+                    value: !1,
+                    filter: "mobile"
                 }
             },
             this.level = 10,
@@ -48313,6 +48360,7 @@
     },
     module.exports = translations;
 })();
+
 
 let globalVal = ChatPanel.toString().match(/[0OlI1]{5}/)[0];
 ChatPanel.prototype.getEmotesCapacity = function () {
