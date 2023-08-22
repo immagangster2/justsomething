@@ -15335,7 +15335,7 @@
                     specular: t,
                     shininess: 30,
                     color: t,
-                    opacity: .7,
+                    opacity: 1,
                     transparent: !0,
                     side: THREE.DoubleSide,
                     shading: THREE.FlatShading,
@@ -15377,6 +15377,14 @@
             },
             t.prototype.createModel = function () {
                 return new CrystalModel
+            },
+            t.prototype.getModelInstance = function (t) {
+                var e,
+                i;
+                return i = t % this.models.length,
+                e = this.OOlOI.settings.check("colorblind") ? 65280 : 65280,
+                this.material.color.set(t),
+                new THREE.Mesh(this.models[i].geometry, this.material)
             },
             t
         }
@@ -31532,16 +31540,6 @@
                     skipauto: !0,
                     filter: "default,app,mobile"
                 },
-                gamepad_control: {
-                    name: "Gamepad support",
-                    value: !1,
-                    filter: "app,mobile"
-                },
-                automatic_screenshots: {
-                    name: "Automatic screenshots",
-                    value: !1,
-                    filter: "app"
-                },
                 sounds: {
                     name: "Sound Effects",
                     value: 1,
@@ -31568,16 +31566,6 @@
                     type: "select",
                     options: ["en", "fr", "de", "es", "pl", "ru", "hu", "ja", "pt", "hr", "tr", "cs", "sk", "id", "nl", "it", "zh", "zh-tw", "da", "ar", "sv", "ro", "lt", "az", "th", "he", "ko", "fa", "el"],
                     filter: "default,app,mobile"
-                },
-                joystick_thrust: {
-                    name: "Joystick thrust",
-                    value: !1,
-                    filter: "mobile"
-                },
-                auto_rcs: {
-                    name: "Auto RCS",
-                    value: !1,
-                    filter: "mobile"
                 }
             },
             this.level = 10,
