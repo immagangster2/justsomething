@@ -5494,17 +5494,6 @@
             M,
             T;
             if (this.l10O1.visible) {
-                if (f = t.getUint8(1), d = 2, g = 1, this.max_index = 1, _ = this.OOlOI.settings.check("colorblind") ? 1 : .7, null != this.OOlOI.mode.updateRadar) {
-                    for (h = c = g, v = this.size - 1; c <= v; h = c += 1)
-                        this.ll0I1[h] = 0;
-                    return this.geometry.getAttribute("position").needsUpdate = !0,
-                    this.geometry.getAttribute("color").needsUpdate = !0,
-                    this.geometry.getAttribute("ll0I1").needsUpdate = !0,
-                    this.geometry.getAttribute("time").needsUpdate = !0,
-                    this.geometry.getAttribute("oldpos").needsUpdate = !0,
-                    this.geometry.getAttribute("type").needsUpdate = !0,
-                    void this.iteration++
-                }
                 for (k = [], h = p = 0, b = f - 1; p <= b && !(g >= this.size - this.OOlOI.ll1O0.IOl1O.stations.length); h = p += 1)
                     i = !0 & t.getUint8(d + 3), u = t.getUint8(d), M = t.getInt8(d + 1) / 128, T = t.getInt8(d + 2) / 128, d += 8, n = Math.abs(M - this.material.uniforms.mypos.value.x), a = Math.abs(T - this.material.uniforms.mypos.value.y), n = Math.min(n, 2 - n), a = Math.min(a, 2 - a), s = Math.max(Math.abs(n), Math.abs(a)), this.OOlOI.ll1O0.IOl1O.llIl1[u], r = 20, r = this.hue, IlO0l.Il0IO(r / 360, .2, .8, k), z = 10 * this.OOlOI.ll1O0.height / 1e3, o = !1, null != this.friendly_colors && this.friendly_colors > 0 && null != (l = this.OOlOI.names.getData(u)) && (r = l.hue, IlO0l.Il0IO(r / 360, _, 1, k), r === this.OOlOI.ll1O0.IIO0O.status.hue && (o = !0)), u !== e && (o || 0 === h || s <= 1 / this.OOlOI.mode.radar_zoom || this.OOlOI.killers[u] || this.OOlOI.ll1O0.IOl1O.survival) && (y = this.posmap[u], this.vertices[3 * g] = M, this.vertices[3 * g + 1] = T, this.vertices[3 * g + 2] = i ? 0 : 1e3, this.type[g] = 1, 0 === h && this.OOlOI.mode.radar_shows_leader ? (IlO0l.Il0IO(30 / 360, _, 1, k), this.type[g] = 3) : h <= 9 && (this.type[g] = 1), h > 0 && (this.OOlOI.killers[u] || this.OOlOI.ll1O0.IOl1O.survival) && "survival" === this.OOlOI.mode.id && (IlO0l.Il0IO(0, _, 1, k), this.type[g] = 2), this.OOlOI.mode.isTarget(u) && (IlO0l.Il0IO(0, _, 1, k), this.type[g] = 2), null != y && y.iteration === this.iteration - 1 ? (y.x < M - 1 ? y.x += 2 : y.x > M + 1 && (y.x -= 2), y.y < T - 1 ? y.y += 2 : y.y > T + 1 && (y.y -= 2), this.oldpos[2 * g] = y.x, this.oldpos[2 * g + 1] = y.y) : (this.oldpos[2 * g] = M, this.oldpos[2 * g + 1] = T, null == y && (y = {}, this.posmap[u] = y)), y.x = M, y.y = T, y.iteration = this.iteration, this.color[3 * g] = k[0] / 255, this.color[3 * g + 1] = k[1] / 255, this.color[3 * g + 2] = k[2] / 255, this.time[g] = this.OOlOI.ll1O0.IOl1O.Ol1II, this.ll0I1[g] = z * (this.type[g] > 1 ? 2 : 1.5), g++);
                 for (w = this.OOlOI.ll1O0.IOl1O.stations, h = I = 0, O = w.length; I < O && (E = w[h], !(g >= this.size)); h = ++I)
@@ -15382,7 +15371,6 @@
                 var e,
                 i;
                 return i = t % this.models.length,
-                e = this.OOlOI.settings.check("colorblind") ? 65280 : 65280,
                 this.material.color.set(t),
                 new THREE.Mesh(this.models[i].geometry, this.material)
             },
