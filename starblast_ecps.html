@@ -31531,24 +31531,9 @@
                     level: 4,
                     filter: "default,app"
                 },
-                snow: {
-                    name: "Snow",
-                    value: !1,
-                    level: 4
-                },
                 gravity_field: {
                     name: "Display gravity field",
                     value: !0,
-                    filter: "default,app"
-                },
-                colorblind: {
-                    name: "High Contrast",
-                    value: !1,
-                    filter: "default,app,mobile"
-                },
-                buttons_disabled: {
-                    name: "Button clicks disabled",
-                    value: !1,
                     filter: "default,app"
                 },
                 shake: {
@@ -31556,16 +31541,6 @@
                     value: !0,
                     skipauto: !0,
                     filter: "default,app,mobile"
-                },
-                gamepad_control: {
-                    name: "Gamepad support",
-                    value: !1,
-                    filter: "app,mobile"
-                },
-                automatic_screenshots: {
-                    name: "Automatic screenshots",
-                    value: !1,
-                    filter: "app"
                 },
                 sounds: {
                     name: "Sound Effects",
@@ -31594,15 +31569,16 @@
                     options: ["en", "fr", "de", "es", "pl", "ru", "hu", "ja", "pt", "hr", "tr", "cs", "sk", "id", "nl", "it", "zh", "zh-tw", "da", "ar", "sv", "ro", "lt", "az", "th", "he", "ko", "fa", "el"],
                     filter: "default,app,mobile"
                 },
-                joystick_thrust: {
-                    name: "Joystick thrust",
-                    value: !1,
-                    filter: "mobile"
-                },
-                auto_rcs: {
-                    name: "Auto RCS",
-                    value: !1,
-                    filter: "mobile"
+                chat_emotes_capacity: {
+                name: "Chat Emotes Capacity",
+                value: 4,
+                default: 4,
+                skipauto: !0,
+                type: "range",
+                min: 1,
+                max: 5,
+                /*[Object.keys(settings.music).find(v => v.match(/^[0OIl1]+$/))]: 1,*/
+                filter: "default,app,mobile"
                 }
             },
             this.level = 10,
@@ -48369,6 +48345,37 @@ ChatPanel.prototype.getEmotesCapacity = function () {
   catch (e) { return 5; }
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
+
+
+for (let i in window) try {
+  let val = window[i].prototype;
+  if ("function" == typeof val.propertyChanged) {
+    let oldVal = val.propertyChanged;
+    val.propertyChanged = function (t, e) {
+      switch (t) {
+        case "chat_emotes_capacity": {
+          let alternative = document.querySelector("#chat_emotes_capacity-value");
+          if (alternative != null) alternative.innerText = e;
+          break;
+        }
+        default:
+          oldVal.apply(this, arguments)
+      }
+    };
+    break;
+  }
+} catch (e) {};
+
+function decorateSettings () {
+    let emotes = document.querySelector("#chat_emotes_capacity_value"), alternative = document.querySelector("#chat_emotes_capacity-value");
+    if (alternative == null && emotes != null) {
+    emotes.setAttribute("style", "display: none");
+    alternative = document.createElement("span");
+    alternative.setAttribute("id", "chat_emotes_capacity-value");
+    alternative.innerText = module.exports.settings.check("chat_emotes_capacity");
+    emotes.after(alternative);
+  }
+};
 
 
  </script>
