@@ -48384,26 +48384,30 @@ function decorateSettings () {
   }
 };
 
-
-function changeEmotesCapacity(newCapacity) {
-  const globalVal = Object.keys(window).find(key => {
-    const val = window[key]?.prototype;
-    return typeof val?.propertyChanged === "function";
-  });
-
-  if (globalVal) {
-    window[globalVal].settings.set("chat_emotes_capacity", newCapacity);
-    const alternative = document.querySelector("#chat_emotes_capacity-value");
-    if (alternative != null) {
-      alternative.innerText = newCapacity;
+var commands = {
+  "in-game-settings": {
+    suggested_key: {
+      default: "Shift+S"
     }
   }
-}
+};
 
-decorateSettings();
+var shortcutRules = {
+  "in-game-settings": {
+    action: function () {
+      clickElem(".sbg-gears");
+    }
+  }
+};
 
 
-window.changeEmotesCapacity = changeEmotesCapacity;
+document.addEventListener("keydown", function(event) {
+  for (const [command, { suggested_key }] of Object.entries(commands)) {
+    if (event.key === suggested_key.default && shortcutRules[command].match(new URL(window.location.href))) {
+      shortcutRules[command].action();
+    }
+  }
+});
 
 
  </script>
