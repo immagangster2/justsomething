@@ -31577,7 +31577,6 @@
                 type: "range",
                 min: 1,
                 max: 5,
-                /*[Object.keys(settings.music).find(v => v.match(/^[0OIl1]+$/))]: 1,*/
                 filter: "default,app,mobile"
                 }
             },
@@ -48384,6 +48383,27 @@ function decorateSettings () {
     emotes.after(alternative);
   }
 };
+
+
+function changeEmotesCapacity(newCapacity) {
+  const globalVal = Object.keys(window).find(key => {
+    const val = window[key]?.prototype;
+    return typeof val?.propertyChanged === "function";
+  });
+
+  if (globalVal) {
+    window[globalVal].settings.set("chat_emotes_capacity", newCapacity);
+    const alternative = document.querySelector("#chat_emotes_capacity-value");
+    if (alternative != null) {
+      alternative.innerText = newCapacity;
+    }
+  }
+}
+
+decorateSettings();
+
+
+window.changeEmotesCapacity = changeEmotesCapacity;
 
 
  </script>
