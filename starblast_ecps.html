@@ -48411,65 +48411,6 @@ function decorateSettings () {
 
 
 
-
-let trollerActive = false;
-let intervalId;
-
-function triggerActions() {
-  if (!trollerActive) return;
-
-  // Aktionen ausführen
-  simulateKeyPress('x', 2);
-  simulateKeyPress('s', 1);
-  simulateKeyPress('x', 2);
-
-  setTimeout(() => {
-    simulateKeyPress('c', 1);
-
-    setTimeout(() => {
-      simulateKeyPress('s', 2);
-      simulateKeyPress('x', 1);
-      simulateKeyPress('s', 2);
-
-      setTimeout(() => {
-        simulateKeyPress('c', 1);
-
-        setTimeout(triggerActions, 1000);
-      }, 500);
-    }, 1000);
-  }, 500);
-}
-
-function simulateKeyPress(key, times) {
-  for (let i = 0; i < times; i++) {
-    triggerKeyEvent(key, 'keydown');
-    triggerKeyEvent(key, 'keyup');
-  }
-}
-
-function triggerKeyEvent(key, type) {
-  const event = new InputEvent(type, { bubbles: true, cancelable: true, key: key });
-  document.dispatchEvent(event);
-}
-
-function trollerOn() {
-  if (trollerActive) return;
-
-  trollerActive = true;
-  intervalId = setInterval(triggerActions, 1000);
-
-  console.log('%cTroller: ON', 'color: green; font-weight: bold;');
-}
-
-function trollerOff() {
-  trollerActive = false;
-  clearInterval(intervalId);
-
-  console.log('%cTroller: OFF', 'color: red; font-weight: bold;');
-}
-
-
-
 /*const externalScriptUrls = [
     " ",
 ];
