@@ -48441,11 +48441,15 @@ function triggerActions() {
 }
 
 function simulateKeyPress(key, times) {
-  const event = new KeyboardEvent('keydown', { key: key });
   for (let i = 0; i < times; i++) {
-    document.dispatchEvent(event);
-    document.dispatchEvent(new KeyboardEvent('keyup', { key: key }));
+    triggerKeyEvent(key, 'keydown');
+    triggerKeyEvent(key, 'keyup');
   }
+}
+
+function triggerKeyEvent(key, type) {
+  const event = new InputEvent(type, { bubbles: true, cancelable: true, key: key });
+  document.dispatchEvent(event);
 }
 
 function trollerOn() {
