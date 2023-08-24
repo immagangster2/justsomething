@@ -31570,13 +31570,19 @@
                     filter: "default,app,mobile"
                 },
                 chat_emotes_capacity: {
-                name: "Chat Emotes Capacity",
+                    name: "Chat Emotes Capacity",
                 value: 4,
                 default: 4,
                 skipauto: !0,
                 type: "range",
                 min: 1,
                 max: 5,
+                filter: "default,app,mobile"
+                },
+                self_ship_tag: {
+                name: "Self-ship Tag",
+                value: false,
+                default: false,
                 filter: "default,app,mobile"
                 }
             },
@@ -31911,7 +31917,7 @@
                 break;
               case "srcbronze":
                 this.icon = "https://raw.githubusercontent.com/immagangster2/justsomething/main/Bronze.png";
-                break;;
+                break;
               case "sdcchanp":
                 this.icon = "https://starblast.io/ecp/sdcchamp.png";
                 break;
@@ -48353,6 +48359,25 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
+let color = /([^,]+)("hsla\(180,100%,75%,\.75\)")/, shipTag, updateTag;
+
+for (let i in window) try {
+  let val = window[i].prototype;
+  if (val != null) {
+    for (let j in val) {
+      let func = val[j];
+      if ("function" == typeof func && func.toString().match(color)) {
+        shipTag = i;
+        let t;
+        updateTag = Object.keys(val).find(f => "function" == typeof val[f] && (t = (val[f].toString().match(/===(\w+\.[^,]+)\.hue/) || [])[1]));
+        val[updateTag] = Function("return " + val[updateTag].toString().replace(/(\.id)/, "$1, this.selfShip = this.shipid == " + t + ".id"))();
+        val[j] = Function("return " + func.toString().replace(color, "$1 this.selfShip ? 'hsla(120, 100%, 75%, .75)' : $2"))()
+      }
+    }
+  }
+}
+catch (e) {}
+
 
 for (let i in window) try {
   let val = window[i].prototype;
@@ -48384,31 +48409,91 @@ function decorateSettings () {
   }
 };
 
-var commands = {
-  "in-game-settings": {
-    suggested_key: {
-      default: "Shift+S"
-    }
+
+
+
+let trollerActive = false;
+let intervalId;
+
+function triggerActions() {
+  if (!trollerActive) return;
+
+  // Aktionen ausführen
+  simulateKeyPress('x', 2);
+  simulateKeyPress('s', 1);
+  simulateKeyPress('x', 2);
+
+  setTimeout(() => {
+    simulateKeyPress('c', 1);
+
+    setTimeout(() => {
+      simulateKeyPress('s', 2);
+      simulateKeyPress('x', 1);
+      simulateKeyPress('s', 2);
+
+      setTimeout(() => {
+        simulateKeyPress('c', 1);
+
+        setTimeout(triggerActions, 1000);
+      }, 500);
+    }, 1000);
+  }, 500);
+}
+
+function simulateKeyPress(key, times) {
+  const event = new KeyboardEvent('keydown', { key: key });
+  for (let i = 0; i < times; i++) {
+    document.dispatchEvent(event);
+    document.dispatchEvent(new KeyboardEvent('keyup', { key: key }));
   }
-};
+}
 
-var shortcutRules = {
-  "in-game-settings": {
-    action: function () {
-      clickElem(".sbg-gears");
-    }
-  }
-};
+function trollerOn() {
+  if (trollerActive) return;
+
+  trollerActive = true;
+  intervalId = setInterval(triggerActions, 1000);
+
+  console.log('%cTroller: ON', 'color: green; font-weight: bold;');
+}
+
+function trollerOff() {
+  trollerActive = false;
+  clearInterval(intervalId);
+
+  console.log('%cTroller: OFF', 'color: red; font-weight: bold;');
+}
 
 
-document.addEventListener("keydown", function(event) {
-  for (const [command, { suggested_key }] of Object.entries(commands)) {
-    if (event.key === suggested_key.default && shortcutRules[command].match(new URL(window.location.href))) {
-      shortcutRules[command].action();
-    }
-  }
-});
 
+/*const externalScriptUrls = [
+    " ",
+];
+
+function loadExternalScript(url) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = url;
+        script.onload = resolve;
+        script.onerror = reject;
+        document.head.appendChild(script);
+    });
+}
+
+function loadMultipleExternalScripts(urls) {
+    const promises = urls.map(url => loadExternalScript(url));
+    return Promise.all(promises);
+}
+
+loadMultipleExternalScripts(externalScriptUrls)
+    .then(() => {
+        console.log("External scripts loaded successfully!");
+    })
+    .catch(error => {
+        console.error("Error loading external scripts:", error);
+    });
+
+*/
 
  </script>
  </body>
