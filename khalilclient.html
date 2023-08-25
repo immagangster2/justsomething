@@ -616,7 +616,6 @@
         color: #fff;
       }
       .followtools span {
-        text-transform: uppercase;
         letter-spacing: -0.5px;
       }
       .social {
@@ -1225,7 +1224,6 @@
         font-size: 0.9vw;
         margin: 0.7vw;
         cursor: pointer;
-        text-transform: uppercase;
       }
       .alphacentauri button:hover {
         color: #fff;
@@ -2613,7 +2611,7 @@
         ><br />
         <a id="rankings" href="#" class="big cup">
           <i class="fa fa-fw fa-trophy"></i><br />
-          <span data-translate="LEADERBOARD">LEADERBOARD</span> </a
+          <span data-translate="Leaderboard">Leaderboard</span> </a
         ><br />
         <a data-display-only="en,fr" id="training" href="#" class="big">
           <i class="sbg sbg-fw sbg-fly-mid"></i><br />
@@ -12310,7 +12308,7 @@
                   (e.font = s + "pt Play"),
                   (e.fillStyle = "rgba(255,255,255,.8)"),
                   e.fillText(
-                    t("Lasers Operation").toUpperCase(),
+                    t("Lasers Operation"),
                     0.5 * this.lIOlI,
                     0.15 * this.II1I0
                   ),
@@ -12321,7 +12319,7 @@
                     ? "rgba(255,255,255,.2)"
                     : "rgba(255,255,255,1)"),
                   e.fillText(
-                    t("Offensive").toUpperCase(),
+                    t("Offensive"),
                     0.5 * this.lIOlI,
                     0.5 * this.II1I0
                   ),
@@ -12331,11 +12329,7 @@
                   (e.font = this.healing
                     ? Math.round(1.5 * s) + "pt Play"
                     : Math.round(1.3 * s) + "pt Play"),
-                  e.fillText(
-                    t("Healing").toUpperCase(),
-                    0.5 * this.lIOlI,
-                    0.8 * this.II1I0
-                  ),
+                  e.fillText(t("Healing"), 0.5 * this.lIOlI, 0.8 * this.II1I0),
                   e.restore()
                 );
               }),
@@ -12410,7 +12404,7 @@
                       (this.quit = new MobileMenuButton(
                         this.II1lO,
                         this,
-                        t("Quit to Menu").toUpperCase(),
+                        t("Quit to Menu"),
                         "³",
                         "quit"
                       )),
@@ -12426,7 +12420,7 @@
                       (this.roomlink = new MenuButton(
                         this.II1lO,
                         this,
-                        t("Copy Room Link").toUpperCase(),
+                        t("Copy Room Link"),
                         "roomlink"
                       )),
                       (this.settings = new MenuButton(
@@ -12460,7 +12454,7 @@
                       (this.roomlink = new MenuButton(
                         this.II1lO,
                         this,
-                        t("Copy Room Link").toUpperCase(),
+                        t("Copy Room Link"),
                         "roomlink"
                       )),
                       this.addButton(this.resume),
@@ -12481,19 +12475,19 @@
                   (this.quit_cancel = new MenuButton(
                     this.II1lO,
                     this,
-                    t("Cancel").toUpperCase(),
+                    t("Cancel"),
                     "quit_cancel"
                   )),
                   (this.quit_to_menu = new MenuButton(
                     this.II1lO,
                     this,
-                    t("Quit to Menu").toUpperCase(),
+                    t("Quit to Menu"),
                     "quit_to_menu"
                   )),
                   (this.quit_game = new MenuButton(
                     this.II1lO,
                     this,
-                    t("Quit Game").toUpperCase(),
+                    t("Quit Game"),
                     "quit_game"
                   )),
                   this.addButton(this.quit_cancel),
@@ -12596,7 +12590,7 @@
                     return (this.quit_menu_shown = !1), this.createMainMenu();
                   case "roomlink":
                     return (
-                      this.roomlink.IOl11(t("Copied!").toUpperCase()),
+                      this.roomlink.IOl11(t("Copied!")),
                       this.II1lO.I1l0I.copyRoomLink(),
                       setTimeout(
                         (function (t) {
@@ -36089,11 +36083,7 @@
                             e.fillText("", C, c + (a + 0.5) * E),
                             (C += 0.8 * E))),
                         (e.font = K + "pt Play"),
-                        e.fillText(
-                          r.player_name,
-                          C,
-                          c + (a + 0.5) * E
-                        ),
+                        e.fillText(r.player_name, C, c + (a + 0.5) * E),
                         (e.textAlign = "right"),
                         (Y = e.measureText(V).width),
                         (e.fillStyle = "#000"),
@@ -37474,7 +37464,7 @@
                     (this.cup = new Cup("")),
                     this.add(this.cup, [0.4, 0.06, 0.2, 0.2]),
                     this.animate(this.cup, 1))
-                  : (this.title = new Oll1l(t("Deathmatch").toUpperCase())),
+                  : (this.title = new Oll1l(t("Deathmatch"))),
                 (this.title.font = "Play"),
                 (this.title.color = "#FFF"),
                 (this.title.background = null),
@@ -39157,7 +39147,7 @@
               (this.II1lO = e),
                 (this.mode = s),
                 i.I1IO1.constructor.call(this),
-                (this.title = new Oll1l(t("Battle Royale").toUpperCase())),
+                (this.title = new Oll1l(t("Battle Royale"))),
                 (this.title.font = "Play"),
                 (this.title.color = "#FFF"),
                 (this.title.background = null),
@@ -40356,7 +40346,7 @@
                       (n = s[e]), l.push(this.say(n));
                     return l;
                   }
-                  return this.feed.push(t.toUpperCase());
+                  return this.feed.push(t);
                 }
               }),
               (e.prototype.II0I0 = function (t) {
@@ -48448,9 +48438,8 @@
                             (h.querySelector("[name=amount]").value = document
                               .querySelector(".pricechoice .active")
                               .getAttribute("data-price")),
-                            (h.querySelector("[name=lc]").value = translations
-                              .getLang()
-                              .toUpperCase()),
+                            (h.querySelector("[name=lc]").value =
+                              translations.getLang()),
                             (h.querySelector("[name=custom]").value =
                               e.II1lO.llll0.key),
                             (h.querySelector("[name=currency_code]").value =
@@ -52110,8 +52099,7 @@
                 return this.check(t)
                   ? t
                   : "undefined" != typeof I0O10 && null !== I0O10
-                  ? ((e = Math.abs(this.hash(t)) % I0O10.length),
-                    I0O10[e].toUpperCase())
+                  ? ((e = Math.abs(this.hash(t)) % I0O10.length), I0O10[e])
                   : "";
               }),
               (t.prototype.check = function (t) {
@@ -59838,7 +59826,7 @@
                     fa: "بازی کردن",
                     el: "ΠΑΙΖΩ",
                   },
-                  LEADERBOARD: {
+                  Leaderboard: {
                     fr: "CLASSEMENT",
                     es: "CLASIFICACIÓN",
                     ja: "順位表",
@@ -67772,7 +67760,7 @@
                     fa: "کربن",
                     el: "Άνθρακας",
                   },
-                  "SKIP TRAINING": {
+                  "SKIP Training": {
                     fr: "PASSER L'ENTRAINEMENT",
                   },
                   Training: {
