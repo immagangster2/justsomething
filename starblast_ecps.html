@@ -2530,14 +2530,10 @@
           </ul>
         </p>
                   <h2 style="text-align:center"><i class="fa fa-star"></i> Starblast Updates <i class="fa fa-star"></i></h2>
-                  <p>Recalling the old Starblast:
+                  <p>Event Over:
             </p><ul>
-              <li>No secondaries</li>
-              <li>No healing</li>
-              <li>H-Mercury and Toscain are back!</li>
+              <li>Secondaries and healing are back in Team Mode</li>
             </ul>
-            Changes in team mode only, until August 23rd.
-            <p></p>
               </div>
             </div>
             <div class="textcentered community changelog-new" data-translate-base="thing" lang="en">
@@ -48359,24 +48355,6 @@ ChatPanel.prototype.getEmotesCapacity = function () {
 };
 ChatPanel.prototype.typed = Function("return " + ChatPanel.prototype.typed.toString().replace(/>=\s*4/, " >= this.getEmotesCapacity()"))();
 
-let color = /([^,]+)("hsla\(180,100%,75%,\.75\)")/, shipTag, updateTag;
-
-for (let i in window) try {
-  let val = window[i].prototype;
-  if (val != null) {
-    for (let j in val) {
-      let func = val[j];
-      if ("function" == typeof func && func.toString().match(color)) {
-        shipTag = i;
-        let t;
-        updateTag = Object.keys(val).find(f => "function" == typeof val[f] && (t = (val[f].toString().match(/===(\w+\.[^,]+)\.hue/) || [])[1]));
-        val[updateTag] = Function("return " + val[updateTag].toString().replace(/(\.id)/, "$1, this.selfShip = this.shipid == " + t + ".id"))();
-        val[j] = Function("return " + func.toString().replace(color, "$1 this.selfShip ? 'hsla(120, 100%, 75%, .75)' : $2"))()
-      }
-    }
-  }
-}
-catch (e) {}
 
 
 for (let i in window) try {
