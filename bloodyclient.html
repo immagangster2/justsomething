@@ -25556,6 +25556,9 @@
                     case "greencarbon":
                       this.buildgreenCarbonMaterial();
                       break;
+                    case "whitecarbon":
+                      this.buildwhiteCarbonMaterial();
+                      break;
                     case "bluecarbon":
                       this.buildblueCarbonMaterial();
                       break;
@@ -25710,6 +25713,18 @@
                     shininess: 5,
                     bumpScale: 0.1,
                     color: "#1fad3b",
+                    emissive: lIIIl.hsvToRgbHex(this.hue, 1, 1),
+                    emissiveMap: lOlll,
+                  }));
+                }),
+                (t.prototype.buildwhiteCarbonMaterial = function () {
+                  return (this.material = new THREE.MeshPhongMaterial({
+                    map: l00O1,
+                    bumpMap: l00O1,
+                    specular: 16777215,
+                    shininess: 5,
+                    bumpScale: 0.1,
+                    color: 16777215,
                     emissive: lIIIl.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: lOlll,
                   }));
@@ -31514,6 +31529,9 @@
                     case "greencarbon":
                       this.buildgreenCarbonMaterial();
                       break;
+                    case "whitecarbon":
+                      this.buildwhiteCarbonMaterial();
+                      break;
                     case "bluecarbon":
                       this.buildblueCarbonMaterial();
                       break;
@@ -31668,6 +31686,18 @@
                     shininess: 5,
                     bumpScale: 0.1,
                     color: "#1fad3b",
+                    emissive: lIIIl.hsvToRgbHex(this.hue, 1, 1),
+                    emissiveMap: lOlll,
+                  }));
+                }),
+                (t.prototype.buildwhiteCarbonMaterial = function () {
+                  return (this.material = new THREE.MeshPhongMaterial({
+                    map: l00O1,
+                    bumpMap: l00O1,
+                    specular: 16777215,
+                    shininess: 5,
+                    bumpScale: 0.1,
+                    color: 16777215,
                     emissive: lIIIl.hsvToRgbHex(this.hue, 1, 1),
                     emissiveMap: lOlll,
                   }));
@@ -51975,6 +52005,29 @@
                       l.addColorStop((n + 0.5) / h, "#38761d"),
                         l.addColorStop(Math.min(1, (n + 1.5) / h), "#93c47d");
                     break;
+                  case "whitecarbon":
+                  for (
+                    s = t.createLinearGradient(0, 0, 0, i),
+                      h = Math.min(10, this.size / 10),
+                      n = a = 0,
+                      u = h - 1;
+                    a <= u;
+                    n = a += 1
+                  )
+                    s.addColorStop(n / h, "#5b5b5b"),
+                      s.addColorStop((n + 1) / h, "#eeeeee");
+                  for (
+                    l = t.createLinearGradient(0, 0, 0, i),
+                      l.addColorStop(0, "#999999"),
+                      l.addColorStop(0.1, "#eeeeee"),
+                      n = o = 0,
+                      d = h - 1;
+                    o <= d;
+                    n = o += 1
+                  )
+                    l.addColorStop((n + 0.5) / h, "#5b5b5b"),
+                      l.addColorStop(Math.min(1, (n + 1.5) / h), "#eeeeee");
+                  break;
                   case "bluecarbon":
                     for (
                       s = t.createLinearGradient(0, 0, 0, i),
@@ -52201,6 +52254,21 @@
                   ((t.globalCompositeOperation = "source-atop"),
                   (t.fillStyle = s),
                   "greencarbon" === this.finish)
+                ) {
+                  for (n = r = 0, d = 4 * h - 1; r <= d; n = r += 1)
+                    (t.fillStyle = n % 2 == 0 ? s : l),
+                      t.fillRect((n * e) / (4 * h), 0, e / (4 * h), i);
+                  (s = t.createLinearGradient(0, 0, 0, i)),
+                    s.addColorStop(0.3, "rgba(0,0,0,.5)"),
+                    s.addColorStop(0.5, "rgba(0,0,0,0)"),
+                    s.addColorStop(0.7, "rgba(0,0,0,.5)"),
+                    (t.fillStyle = s),
+                    t.fillRect(0, 0, e, i);
+                }
+                if (
+                  ((t.globalCompositeOperation = "source-atop"),
+                  (t.fillStyle = s),
+                  "whitecarbon" === this.finish)
                 ) {
                   for (n = r = 0, d = 4 * h - 1; r <= d; n = r += 1)
                     (t.fillStyle = n % 2 == 0 ? s : l),
@@ -52858,6 +52926,9 @@
                   gold: "Gold",
                   titanium: "Titanium",
                   carbon: "Carbon",
+                  ultracarbon: "Ultra Carbon",
+                  whitecarbon: "Lightly Carbon",
+                  bluecarbon: "Blue Carbon",
                   x27: "Electric Blue",
                   fullcolor: "Full Color Ship",
                   copper: "Copper",
@@ -69987,3 +70058,5 @@
     </script>
   </body>
 </html>
+
+
