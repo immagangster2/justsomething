@@ -7445,9 +7445,7 @@
                         case "titanium":
                             this.buildTitaniumMaterial();
                             break;
-                        case "carbon":
-                            this.buildCarbonMaterial();
-                            break;
+						case"carbon":this.buildCarbonMaterial();break;
                         case "X27":
                             this.buildX27Material();
                             break;
@@ -7544,18 +7542,9 @@
 						emissive: AlloyEmissiveMaterial.hsvToRgbHex(this.hue,.5,1),
 						emissiveMap: AlloyEmissiveMap
 					})
-				}, t.prototype.buildCarbonMaterial = function() {
-					return this.material = new THREE.MeshPhongMaterial({
-						map: AlloyMaterialMap,
-						bumpMap: AlloyMaterialMap,
-						specular: 6316128,
-						shininess: 5,
-						bumpScale: .1,
-						color: 1052688,
-						emissive: AlloyEmissiveMaterial.hsvToRgbHex(this.hue,.5,1),
-						emissiveMap: CarbonEmissiveMap
-					})
-				}, t.prototype.buildFullColorMaterial = function() {
+				},
+				t.prototype.buildCarbonMaterial=function(){return this.material=new THREE.MeshPhongMaterial({map:AlloyMaterialMap,bumpMap:AlloyMaterialMap,specular:6316128,shininess:5,bumpScale:.1,color:1052688,emissive:AlloyEmissiveMaterial.hsvToRgbHex(this.hue,.5,1),emissiveMap:CarbonEmissiveMap})},
+				t.prototype.buildFullColorMaterial = function() {
 					var t;
 					return t = AlloyEmissiveMaterial.hsvToRgbHex(this.hue, 1, 1), this.material = new THREE.MeshPhongMaterial({
 						map: AlloyMaterialMap,
@@ -10938,7 +10927,7 @@
 				name: "load_music",
 				track: t
 			});
-			if (null == this.music || t !== this.loaded_soundtrack) return null != this.music && (this.music.pause(), delete this.music), this.loaded_soundtrack = t, this.music = new Audio("https://cdn.upload.systems/uploads/" + t), this.music.loop = !0
+			if (null == this.music || t !== this.loaded_soundtrack) return null != this.music && (this.music.pause(), delete this.music), this.loaded_soundtrack = t, this.music = new Audio("https://starblast.data.neuronality.com/music/" + t), this.music.loop = !0
 		}, t.prototype.pauseMusic = function() {
 			return this.OOlOI.is_mobile_app ? this.postMessage({
 				name: "pause_music"
@@ -11069,7 +11058,7 @@
 			this.id = t, this.name = e, this.custom_game_name = this.name, this.custom_color = !0, this.radar_shows_leader = !0, this.max_enter_time = 2700, this.max_enter_players = 30, this.options = {
 				friction_ratio: 1,
 				speed_mod: 1
-			}, this.rotate_mines = !1, this.radar_zoom = 2, this.soundtrack = "lSxThU2r.mp3", this.respawn_delay = 0, this.OI1OO = !0, this.anonymous_ships = !1, this.spectate = !1, this.spectate_ship = 1, this.custom_game_allowed = !0, this.show_weaponsbar = !0, this.restricted_weapons_store = !0, this.show_highscore = !0, this.infinite_base_lives = !0, this.l1lO1 = !0, this.sharing_enabled = !0, this.OlIOI = OlIOI, this.OIIOl = OIIOl, this.vocabulary = [{
+			}, this.rotate_mines = !1, this.radar_zoom = 2, this.soundtrack = "procedurality.mp3", this.respawn_delay = 0, this.OI1OO = !0, this.anonymous_ships = !1, this.spectate = !1, this.spectate_ship = 1, this.custom_game_allowed = !0, this.show_weaponsbar = !0, this.restricted_weapons_store = !0, this.show_highscore = !0, this.infinite_base_lives = !0, this.l1lO1 = !0, this.sharing_enabled = !0, this.OlIOI = OlIOI, this.OIIOl = OIIOl, this.vocabulary = [{
 				text: "You",
 				icon: "N",
 				key: "O"
@@ -11666,7 +11655,7 @@
 			}, {text:"Nigger",icon:"®",key:"T"},
 			{text:"EOT=Trash",icon:"🤡",key:"J"},
 			{text:"Alien",icon:"0",key:"W"},
-			{text:"Boss",icon:"¿",key:"V"}], this.tips_test = "Fight and don't die!", this.tips = [t("Fight and don't die!"), t("Collect gems to upgrade your ship")], this.future_tips = [t("Destroy aliens and l0llI"), t("Collect gems and weapons"), t("Fight the bosses and don't die!")], this.show_highscore = !1, this.infinite_base_lives = !1, this.radar_zoom = 1, this.soundtrack = "jnuU60lt.mp3", this.ecponly = !1, this.custom_game_allowed = !0, this.gameover = !1, this.count_alien_kills = !0
+			{text:"Boss",icon:"¿",key:"V"}], this.tips_test = "Fight and don't die!", this.tips = [t("Fight and don't die!"), t("Collect gems to upgrade your ship")], this.future_tips = [t("Destroy aliens and l0llI"), t("Collect gems and weapons"), t("Fight the bosses and don't die!")], this.show_highscore = !1, this.infinite_base_lives = !1, this.radar_zoom = 1, this.soundtrack = "crystals.mp3", this.ecponly = !1, this.custom_game_allowed = !0, this.gameover = !1, this.count_alien_kills = !0
 		}
 		return extend(i, e), i.prototype.OO01I = function(t) {
 			return this.OOlOI.l0011.enter(), this.OOlOI.l0011.respawn(function(e) {
@@ -11925,7 +11914,7 @@
 				text: "Good Game",
 				icon: "GG",
 				key: "G"
-			}],this.max_enter_time = 3600, this.max_enter_players = 10, this.soundtrack = "lSxThU2r.mp3", this.respawn_delay = 0, this.OI1OO = !1, this.pro = !1, this.anonymous_ships = !0, this.radar_shows_leader = !1, this.show_weaponsbar = !0, this.tips_test = "Kill any ship for %d point", this.tips = [t("Kill any ship for %d point").replace("%d", 1), t("Kill your target for %d points").replace("%d", 2), t("Score %d points to win the round").replace("%d", 12)]
+			}],this.max_enter_time = 3600, this.max_enter_players = 10, this.soundtrack = "argon.mp3", this.respawn_delay = 1e3, this.OI1OO = !1, this.pro = !1, this.anonymous_ships = !0, this.radar_shows_leader = !1, this.show_weaponsbar = !0, this.tips_test = "Kill any ship for %d point", this.tips = [t("Kill any ship for %d point").replace("%d", 1), t("Kill your target for %d points").replace("%d", 2), t("Score %d points to win the round").replace("%d", 12)]
 		}
 		return extend(i, e), i.prototype.OO01I = function(t) {
 			return this.game_info = t, this.OOlOI.startGame(t), this.OOlOI.display.screen.Il110.hide(), this.OOlOI.ll1O0.IOl1O.O1II0.x = 0, this.OOlOI.ll1O0.IOl1O.O1II0.y = -40, this.next_round_page = new NextRoundPage(this.OOlOI, this), this.next_round_page.visible = !1, this.OOlOI.display.screen.Il110.add(this.next_round_page, [0, 0, 1, 1]), this.OOlOI.l0011.enter()
@@ -12420,7 +12409,7 @@
 		return i.prototype = e.prototype, t.prototype = new i, t.IIl0l = e.prototype, t
 	}, hasProp = {}.hasOwnProperty, this.BattleRoyaleMode = function(e) {
 		function i(e, s, l) {
-			this.OOlOI = e, null == s && (s = "battleroyale"), null == l && (l = "Battle Royale"), i.IIl0l.constructor.call(this, s, l), this.radar_zoom = 2, this.vocabulary[{text:"Good Game",icon:"GG",key:"G"}], this.high_def_radar = !0, this.max_enter_time = 120, this.max_enter_players = 30, this.soundtrack = "jnuU60lt.mp3", this.OI1OO = !1, this.anonymous_ships = !1, this.radar_shows_leader = !1, this.OlIOI = BATTLE_SHIPS, this.OIIOl = BATTLE_SHIP_TYPES, this.OlIOI.add(OlIOI.ships_by_code[101]), this.OIIOl.add(OIIOl.types_by_code[101]), this.l0IIO = 36e3, this.lOOl0 = 1.3, this.I010I = .003, this.RADIATION_START = 7200, this.custom_game_allowed = !0, this.l1lO1 = !1, this.tips_test = "Collect weapons and refills", this.tips = [t("Collect weapons and refills"), t("Kill other players"), t("Be the last player standing")], this.spawned = !1
+			this.OOlOI = e, null == s && (s = "battleroyale"), null == l && (l = "Battle Royale"), i.IIl0l.constructor.call(this, s, l), this.radar_zoom = 2, this.vocabulary[{text:"Good Game",icon:"GG",key:"G"}], this.high_def_radar = !0, this.max_enter_time = 120, this.max_enter_players = 30, this.soundtrack = "crystals.mp3", this.OI1OO = !1, this.anonymous_ships = !1, this.radar_shows_leader = !1, this.OlIOI = BATTLE_SHIPS, this.OIIOl = BATTLE_SHIP_TYPES, this.OlIOI.add(OlIOI.ships_by_code[101]), this.OIIOl.add(OIIOl.types_by_code[101]), this.l0IIO = 36e3, this.lOOl0 = 1.3, this.I010I = .003, this.RADIATION_START = 7200, this.custom_game_allowed = !0, this.l1lO1 = !1, this.tips_test = "Collect weapons and refills", this.tips = [t("Collect weapons and refills"), t("Kill other players"), t("Be the last player standing")], this.spawned = !1
 		}
 		return extend(i, e), i.prototype.OO01I = function(t) {
 			return this.game_info = t, this.OOlOI.startGame(t), this.OOlOI.display.screen.Il110.hide(), this.OOlOI.ll1O0.IOl1O.O1II0.x = 0, this.OOlOI.ll1O0.IOl1O.O1II0.y = -40, this.next_round_page = new BattleRoyalePage(this.OOlOI, this), this.next_round_page.visible = !1, this.OOlOI.display.screen.Il110.add(this.next_round_page, [0, 0, 1, 1]), this.OOlOI.l0011.enter()
@@ -12814,7 +12803,7 @@
 				text: "Hmm",
 				icon: "K",
 				key: "Q"
-			}], this.radar_zoom = 1, this.soundtrack = "lSxThU2r.mp3", this.gameover = !1, this.ship_can_upgrade = !1, this.ship_can_buy_life = !1, this.show_upgrades = !1, this.disable_ship_upgrade_collapsing = !0, this.respawn_delay = 1e3, this.sharing_enabled = !1, this.OI1OO = !1, this.tips_test = "You will learn everything about controlling your ship, upgrading, using secondary weapons, comms.", this.tips = [t("You will learn everything about controlling your ship, upgrading, using secondary weapons, comms."), t("If you skip this training, you can still start it later from the profile page.")]
+			}], this.radar_zoom = 1, this.soundtrack = "argon.mp3", this.gameover = !1, this.ship_can_upgrade = !1, this.ship_can_buy_life = !1, this.show_upgrades = !1, this.disable_ship_upgrade_collapsing = !0, this.respawn_delay = 1e3, this.sharing_enabled = !1, this.OI1OO = !1, this.tips_test = "You will learn everything about controlling your ship, upgrading, using secondary weapons, comms.", this.tips = [t("You will learn everything about controlling your ship, upgrading, using secondary weapons, comms."), t("If you skip this training, you can still start it later from the profile page.")]
 		}
 		return extend(i, e), i.prototype.OO01I = function(t) {
 			return this.OOlOI.l0011.enter(), this.OOlOI.l0011.respawn(function(e) {
@@ -16192,9 +16181,7 @@
 				case "alloy":
 					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#68A"), s.addColorStop(.5, "#FFF"), s.addColorStop(.5, "#765"), s.addColorStop(1, "#CCC");
 					break;
-				case "titanium":
-					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#444"), s.addColorStop(.5, "#AAA"), s.addColorStop(.5, "#444"), s.addColorStop(1, "#111");
-					break;
+				case"titanium":s=t.createLinearGradient(0,0,0,i),s.addColorStop(0,"#444"),s.addColorStop(.5,"#AAA"),s.addColorStop(.5,"#444"),s.addColorStop(1,"#111");break;
 				case "gold":
 					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "hsl(40,100%,50%)"), s.addColorStop(.5, "hsl(40,100%,80%)"), s.addColorStop(.5, "hsl(20,100%,30%)"), s.addColorStop(1, "hsl(40,100%,50%)");
 					break;
@@ -16621,7 +16608,7 @@
                 alloy: "Alloy",
                 gold: "Gold",
                 titanium: "Titanium",
-                carbon: "Carbon",
+                carbon:"Carbon",
 				X27: "Electric Blue",
 				FullColor: "Full Color",
                 Copper: "Copper",
