@@ -11058,7 +11058,7 @@
 			this.id = t, this.name = e, this.custom_game_name = this.name, this.custom_color = !0, this.radar_shows_leader = !0, this.max_enter_time = 2700, this.max_enter_players = 30, this.options = {
 				friction_ratio: 1,
 				speed_mod: 1
-			}, this.rotate_mines = !1, this.radar_zoom = 2, this.soundtrack = "procedurality.mp3", this.respawn_delay = 0, this.OI1OO = !0, this.anonymous_ships = !1, this.spectate = !1, this.spectate_ship = 1, this.custom_game_allowed = !0, this.show_weaponsbar = !0, this.restricted_weapons_store = !0, this.show_highscore = !0, this.infinite_base_lives = !0, this.l1lO1 = !0, this.sharing_enabled = !0, this.OlIOI = OlIOI, this.OIIOl = OIIOl, this.vocabulary = [{
+			}, this.rotate_mines = !1, this.radar_zoom = 2, this.soundtrack = "procedurality.mp3", this.respawn_delay = 5, this.OI1OO = !0, this.anonymous_ships = !1, this.spectate = !1, this.spectate_ship = 1, this.custom_game_allowed = !0, this.show_weaponsbar = !0, this.restricted_weapons_store = !0, this.show_highscore = !0, this.infinite_base_lives = !0, this.l1lO1 = !0, this.sharing_enabled = !0, this.OlIOI = OlIOI, this.OIIOl = OIIOl, this.vocabulary = [{
 				text: "You",
 				icon: "N",
 				key: "O"
@@ -13690,7 +13690,7 @@
 			var e, i, s;
 			i = {};
 			for (e in t) s = t[e], e = e.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"), "string" == typeof s && (s = s.replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")), i[e] = s;
-			return this.respawn_delay = 0, this.OOlOI.killed(0, t.gameover, i), this.respawn_delay = 0
+			return this.respawn_delay = 1e3, this.OOlOI.killed(0, t.gameover, i), this.respawn_delay = 1e3
 		}, e.prototype.updateScore = function(t) {
 			if (null != this.scoreboard) return this.scoreboard.updateScore(t)
 		}, e.prototype.showScorePanel = function() {
