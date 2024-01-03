@@ -63,7 +63,7 @@
 		.top-left{top:0;width:calc(18vw + 20px)}.top-left img,.top-right img{max-width:100%}.modal{z-index:3;position:fixed;left:0;right:0;top:-750px;margin:0 auto;box-shadow:0 0 6px hsla(60,100%,80%,1);width:800px;max-width:100%;max-height:100%;background:linear-gradient(135deg,hsla(60,30%,10%,1) 0,hsla(60,30%,30%,1) 150%);transition:top .6s ease;display:none;overflow:auto;color:hsla(60,80%,100%,.8);text-shadow:0 0 6px hsla(60,100%,60%,.75);border-radius: 20px}.modal::-webkit-scrollbar-track{box-shadow:inset 0 0 6px rgba(0,0,0,0.3);border-radius:0;background-color:transparent}
 		.modal::-webkit-scrollbar{width:10px}.modal::-webkit-scrollbar-thumb{border-radius:0;box-shadow:inset 0 0 6px rgba(0,0,0,.5);background-color:hsla(60,50%,70%,.5)}.modal .header{margin:5px 0;padding:5px 40px;font-size:2em;background:hsla(60,70%,70%,.1);border-bottom:5px solid hsla(60,50%,70%,.5)}.modal .modaltitle{display:inline-block}.modal .close-modal{cursor:pointer;width:40px;text-align:center;float:right}.modal .close-modal:hover{color:#FFF;background:rgba(240,250,255,.1)}.modal .modalbody{overflow:auto;padding:20px 40px;font-size:1.5em}
 		.modal .modalbody .regions{text-align:center;border-bottom:1px solid hsla(60,50%,70%,.5);margin:0 -40px 40px -40px;padding:10px 0;background:rgba(120,180,255,.08)}.modal .modalbody .regions .date{text-align:right;font-size:.5em}.modal .modalbody span.region{display:inline-block;width:180px;padding:5px 10px;margin:10px;cursor:pointer;transition:.2s ease all}.modal .modalbody span.region:hover{background:rgba(120,180,255,.05)}.modal .modalbody span.region.active{color:#FFF;background:radial-gradient(ellipse at center,hsla(60,50%,60%,.5) 20%,hsla(60,50%,0%,1) 150%);box-shadow:0 0 6px hsla(60,100%,80%,1);text-shadow:0 0 7px hsla(60,100%,80%,1)}
-		.modal .modal-header{background:rgba(0,0,0,.8);padding:10px;font-size:20px;margin:-20px -40px 20px -40px}.modal .mod{display:inline-block;width:31%;font-size:14px;position:relative;margin:10px}.modal .modecp{position:absolute;bottom:auto;left:0;right:0;background:rgba(0,0,0,.8);padding:10px;font-size:20px;text-align:left}.modal .modecp a{border-radius:2px;background-color:rgba(255,255,255,.25);padding:5px 10px;color:#FFF;margin:0 0 0 10px;float:right}.modal .modecp div{padding:5px 10px}.modal .mod:hover{cursor:pointer}
+		.modal .modal-header{background:rgba(0,0,0,.8);padding:10px;font-size:20px;margin:-20px -40px 20px -40px}.modal .mod{display:inline-block;width:31%;font-size:14px;position:relative;margin:10px}.modal .modecp{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.8);padding:10px;font-size:20px;text-align:left}.modal .modecp a{border-radius:2px;background-color:rgba(255,255,255,.25);padding:5px 10px;color:#FFF;margin:0 0 0 10px;float:right}.modal .modecp div{padding:5px 10px}.modal .mod:hover{cursor:pointer}
 		.modal .mod:hover img{filter:grayscale(0)}.modal .mod img{width:100%;filter:grayscale(60%)}.modal .mod.inactive{cursor:default}.modal .mod.inactive img{filter:grayscale(100%)}.modal .mod .title{background:rgba(0,0,0,.5);padding:3px 10px;text-align:left}.modal .mod .nowplaying,.modal .mod .author{float:right}.modal .mod .totalplayed{padding:0 10px;margin-bottom:-15px;background:#fff;color:#000;text-shadow:none;font-size:.8em;text-align:left;position:absolute;top:-7px;left:0;right:0;z-index:1}#ranks .rankings{width:100%;border-spacing:0;border-collapse:collapse}
 		#ranks .rankings canvas{opacity:0;transform:translateY(20px) scale(0);transition:1s ease all}#ranks .rankings tbody tr{height:45px}#ranks .rankings tbody tr:nth-child(odd){background:rgba(120,180,255,.08)}#ranks .rankings th:first-child{font-size:11px}#ranks .rankings th{text-align:center;padding:10px}#ranks .rankings th.orating{width:33.333%;background:rgba(0,0,0,.2);border:1px dashed hsl(60,50%,50%);border-bottom:0}#ranks .rankings td.trophies{width:10%;background:rgba(0,0,0,.2);border-right:1px dashed hsl(60,50%,50%);text-align:right}
 		#ranks .rankings tr:first-child td.trophies{color:gold}#ranks .rankings tr:nth-child(2) td.trophies{color:silver}#ranks .rankings tr:nth-child(3) td.trophies{color:#cd7f32}#ranks .rankings td:last-child{text-align:right}#ranks .rankings td{padding:5px 10px;width:auto;vertical-align:middle}#ranks .fa-long-arrow-up{color:#77ee90}#ranks .fa-long-arrow-down{color:#ed8256}#ranks small{font-size:.6em;display:inline-block;width:35px;text-align:center}.modal .modalbody label{float:right;vertical-align:middle}
@@ -2143,7 +2143,7 @@
 			}, i.prototype.statsUpgradesNavigation = function() {
 				if (null != this.gamepad_helper) return this.gamepad_helper.statsUpgradesNavigation()
 			}, i.prototype.showWeaponStore = function(t) {
-				if (this.OOlOI.mode.show_weaponsbar && (!this.OOlOI.mode.weapons_store || t)) return null == this.weapon_store && (this.weapon_store = new WeaponStore(this.OOlOI), this.OOlOI.is_mobile_app ? this.add(this.weapon_store, [.05, .05, .9, .9]) : this.add(this.weapon_store, [.25, .25, .5, .5])), this.weapon_store.lO000(), this.OOlOI.is_mobile_app && null != this.cursor ? this.cursor.visible = !1 : void 0
+				if (this.OOlOI.mode.show_weaponsbar && (!this.OOlOI.mode.restricted_weapons_store || t)) return null == this.restricted_weapons_store && (this.weapon_store = new WeaponStore(this.OOlOI), this.OOlOI.is_mobile_app ? this.add(this.weapon_store, [.05, .05, .9, .9]) : this.add(this.weapon_store, [.25, .25, .5, .5])), this.weapon_store.lO000(), this.OOlOI.is_mobile_app && null != this.cursor ? this.cursor.visible = !1 : void 0
 			}, i.prototype.hideWeaponStore = function() {
 				if (null != this.weapon_store && this.weapon_store.hide(), this.OOlOI.is_mobile_app && null != this.cursor) return this.cursor.visible = !0
 			}, i.prototype.toggleWeaponStore = function() {
@@ -2640,7 +2640,7 @@
 			}, e.prototype.III11 = function() {
 				var t, i, s, l, n, a, o, r, h, u, d, c;
 				for (e.IIl0l.III11.call(this), this.signature !== this.OOlOI.weapons.signature && (this.signature = this.OOlOI.weapons.signature, this.repaint(), this.fixSelection()), this.ship_level !== this.OOlOI.ll1O0.IIO0O.type.level && (this.ship_level = this.OOlOI.ll1O0.IIO0O.type.level, this.repaint()), this.OOlOI.using_gamepad !== this.using_gamepad && (this.using_gamepad = this.OOlOI.using_gamepad, this.repaint()), h = this.OOlOI.weapons.weapons, s = l = 0, a = h.length; l < a; s = ++l) c = h[s], this.cooling[s] && c.next_shot <= this.OOlOI.ll1O0.IOl1O.Ol1II && (this.cooling[s] = !1, this.repaint(), this.OOlOI.IO011.beep(2, .25));
-				for (d = !this.OOlOI.mode.weapons_store, d !== this.store_allowed && (this.store_allowed = d, this.repaint()), r = 1e7, u = WEAPON_TYPES.types, n = 0, o = u.length; n < o; n++) c = u[n], r = Math.min(c.price, r);
+				for (d = !this.OOlOI.mode.restricted_weapons_store, d !== this.store_allowed && (this.store_allowed = d, this.repaint()), r = 1e7, u = WEAPON_TYPES.types, n = 0, o = u.length; n < o; n++) c = u[n], r = Math.min(c.price, r);
 				t = d, i = t || this.OOlOI.weapons.weapons.length > 0, this.setEnabled(i)
 			}, e.prototype.shiftSelection = function() {
 				var t, e;
@@ -2671,7 +2671,7 @@
 				for (this.buy_buttons.sort(function(t, e) {
 						return t.weapon.price - e.weapon.price
 					}), d = this.buy_buttons, a = 0, r = d.length; a < r; a++) i = d[a], .01, h = c, this.add(i, [.3 + p + f / 4 * (.7 - p), .075 + c + g / 3 * .7, .175 - p, .7 / 3 - h]), (f += 1) >= 4 && (f = 0, g += 1);
-				this.background_component = new WeaponStoreBackground(this), this.background_component.levelmod = 1, this.add(this.background_component, [0, 0, 1, 1]), this.OOlOI.mode.weapons_store && (this.countdown = new StoreCountDown(this), this.add(this.countdown, [.7, .9, .1, .1])), this.shown = !1, this.visible = !1, this.block_ship_control = !0
+				this.background_component = new WeaponStoreBackground(this), this.background_component.levelmod = 1, this.add(this.background_component, [0, 0, 1, 1]), this.OOlOI.mode.restricted_weapons_store && (this.countdown = new StoreCountDown(this), this.add(this.countdown, [.7, .9, .1, .1])), this.shown = !1, this.visible = !1, this.block_ship_control = !0
 			}
 			return extend(e, t), e.prototype.lO000 = function() {
 				var t, e, i, s;
@@ -11067,7 +11067,6 @@
 			this.soundtrack = "procedurality.mp3",
 			this.respawn_delay=5e3,
 			this.OI1OO = !0,
-			this.restricted_weapons_store = !0,
 			this.anonymous_ships = !1,
 			this.spectate = !1,
 			this.spectate_ship = 1,
@@ -11166,8 +11165,9 @@
 			this.OOlOI = e,
 			i.IIl0l.constructor.call(this, "survival", "Survival Mode"),
 			this.max_enter_time = 1800,
-    			this.radar_zoom = 4,
-    			this.max_enter_players = 50,
+    		this.radar_zoom = 4,
+    		this.max_enter_players = 50,
+			this.restricted_weapons_store = !1,
 			this.vocabulary = [{
 				text: "Hello",
 				icon: "E",
@@ -11295,9 +11295,9 @@
 			this.OOlOI = e,
 			i.IIl0l.constructor.call(this, "team", "Team Mode"),
 			this.custom_color = !1,
-    			this.restricted_weapons_store=!0,
-    			this.radar_shows_leader = !0,
-    			this.rotate_mines = !0,
+    		this.restricted_weapons_store = !0,
+    		this.radar_shows_leader = !1,
+    		this.rotate_mines = !0,
 			this.vocabulary = [{
 				text: "You",
 				icon: "N",
@@ -11883,9 +11883,8 @@
 			this.OI1OO = !1,
 			this.pro = !1,
 			this.anonymous_ships = !0,
-			this.radar_shows_leader = !0,
-			this.restricted_weapons_store = !0,
-			this.show_weaponsbar = !0,
+			this.radar_shows_leader = !1,
+			this.show_weaponsbar = !1,
 			this.tips_test = "Kill any ship for %d point",
 			this.tips = [t("Kill any ship for %d point").replace("%d", 1), t("Kill your target for %d points").replace("%d", 2), t("Score %d points to win the round").replace("%d", 12)]
 		}
@@ -12397,7 +12396,7 @@
 			this.soundtrack = "crystals.mp3",
 			this.OI1OO = !1,
 			this.anonymous_ships = !1,
-			this.radar_shows_leader = !0,
+			this.radar_shows_leader = !1,
 			this.OlIOI = BATTLE_SHIPS,
 			this.OIIOl = BATTLE_SHIP_TYPES,
 			this.OlIOI.add(OlIOI.ships_by_code[101]),
