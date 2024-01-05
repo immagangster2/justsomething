@@ -11058,13 +11058,13 @@
 			this.id = t, this.name = e,
 			this.custom_game_name = this.name,
 			this.custom_color = !0,
-			this.radar_shows_leader = !0,
+			this.radar_shows_leader=!0,
 			this.max_enter_time = 2700,
 			this.max_enter_players = 30,
 			this.options = {friction_ratio: 1,speed_mod: 1},
 			this.rotate_mines = !1,
-			this.radar_zoom = 2,
-			this.restricted_weapons_store = !0,
+			this.radar_zoom=2,
+			this.restricted_weapons_store=!0,
 			this.soundtrack = "procedurality.mp3",
 			this.respawn_delay=5e3,
 			this.OI1OO = !0,
@@ -11103,7 +11103,7 @@
 		}, e.prototype.getWeaponStoreName = function() {
 			return t("Weapon Store")
 		}, e.prototype.setOptions = function(t) {
-			if (this.options = t, null == this.options.friction_ratio && (this.options.friction_ratio = 1), null == this.options.speed_mod && (this.options.speed_mod = 1), this.options.map_size > 120 && (this.radar_zoom = 4), null != this.options.ships && this.parseShips(this.options), "team" === this.id && this.options.max_players >= 200 && (this.aow = !0), null != this.options.vocabulary) return this.vocabulary = this.options.vocabulary
+			if (this.options = t, null == this.options.friction_ratio && (this.options.friction_ratio = 1), null == this.options.speed_mod && (this.options.speed_mod = 1), this.options.map_size > 120 && (this.radar_zoom=4), null != this.options.ships && this.parseShips(this.options), "team" === this.id && this.options.max_players >= 200 && (this.aow = !0), null != this.options.vocabulary) return this.vocabulary = this.options.vocabulary
 		}, e.prototype.acceptChat = function(t, e) {
 			return !0
 		}, e.prototype.fixPositions = function() {}, e.prototype.asteroidsDensityModifier = function(t, e) {
@@ -11166,7 +11166,8 @@
 			this.OOlOI = e,
 			i.IIl0l.constructor.call(this, "survival", "Survival Mode"),
 			this.max_enter_time = 1800,
-    			this.radar_zoom = 4,
+    			this.radar_zoom=4,
+			this.radar_shows_leader=!1
 			this.restricted_weapons_store=!1,
     			this.max_enter_players = 50,
 			this.vocabulary = [{
@@ -11296,9 +11297,10 @@
 			this.OOlOI = e,
 			i.IIl0l.constructor.call(this, "team", "Team Mode"),
 			this.custom_color = !1,
-    		this.restricted_weapons_store = !0,
-    		this.radar_shows_leader = !1,
-    		this.rotate_mines = !0,
+    			this.restricted_weapons_store=!0,
+			this.radar_zoom=2
+    			this.radar_shows_leader=!0,
+    			this.rotate_mines = !0,
 			this.vocabulary = [{
 				text: "You",
 				icon: "N",
@@ -11544,7 +11546,7 @@
 			i.IIl0l.constructor.call(this, "invasion", "Invasion"),
 			this.max_enter_time = 120,
 			this.max_enter_players = 6,
-			this.restricted_weapons_store = !0,
+			this.restricted_weapons_store=!0,
 			this.vocabulary = [{
 				text: "Hello",
 				icon: "E",
@@ -11612,7 +11614,7 @@
 			}, {text:"Nigger",icon:"®",key:"T"},
 			{text:"EOT=Trash",icon:"🤡",key:"J"},
 			{text:"Alien",icon:"0",key:"W"},
-			{text:"Boss",icon:"¿",key:"V"}], this.tips_test = "Fight and don't die!", this.tips = [t("Fight and don't die!"), t("Collect gems to upgrade your ship")], this.future_tips = [t("Destroy aliens and l0llI"), t("Collect gems and weapons"), t("Fight the bosses and don't die!")], this.show_highscore = !1, this.infinite_base_lives = !1, this.radar_zoom = 1, this.soundtrack = "crystals.mp3", this.ecponly = !1, this.custom_game_allowed = !0, this.gameover = !1, this.count_alien_kills = !0
+			{text:"Boss",icon:"¿",key:"V"}], this.tips_test = "Fight and don't die!", this.tips = [t("Fight and don't die!"), t("Collect gems to upgrade your ship")], this.future_tips = [t("Destroy aliens and l0llI"), t("Collect gems and weapons"), t("Fight the bosses and don't die!")], this.show_highscore = !1, this.infinite_base_lives = !1, this.radar_zoom=1, this.respawn_delay=1e3,this.soundtrack = "crystals.mp3", this.ecponly = !1, this.custom_game_allowed = !0, this.gameover = !1, this.count_alien_kills = !0
 		}
 		return extend(i, e), i.prototype.OO01I = function(t) {
 			return this.OOlOI.l0011.enter(), this.OOlOI.l0011.respawn(function(e) {
@@ -11870,7 +11872,7 @@
 			null == s && (s = "deathmatch"),
 			null == l && (l = "Deathmatch"),
 			i.IIl0l.constructor.call(this, s, l),
-			this.radar_zoom = 1, 
+			this.radar_zoom=1, 
 			this.vocabulary = [
 			{
 				text: "Good Game",
@@ -11880,11 +11882,12 @@
 			this.max_enter_time = 3600,
 			this.max_enter_players = 10,
 			this.soundtrack = "argon.mp3",
-			this.respawn_delay = 1e3,
+			this.respawn_delay=1e3,
+			this.restricted_weapons_store=!1,
 			this.OI1OO = !1,
 			this.pro = !1,
 			this.anonymous_ships = !0,
-			this.radar_shows_leader = !1,
+			this.radar_shows_leader=!0,
 			this.show_weaponsbar = !1,
 			this.tips_test = "Kill any ship for %d point",
 			this.tips = [t("Kill any ship for %d point").replace("%d", 1), t("Kill your target for %d points").replace("%d", 2), t("Score %d points to win the round").replace("%d", 12)]
@@ -12386,9 +12389,9 @@
 			null == s && (s = "battleroyale"),
 			null == l && (l = "Battle Royale"),
 			i.IIl0l.constructor.call(this, s, l),
-			this.radar_zoom = 2,
+			this.radar_zoom=2,
 			this.respawn_delay=1e3,
-			this.restricted_weapons_store = !0,
+			this.restricted_weapons_store=!0,
 			this.show_weaponsbar = !0,
 			this.vocabulary = [{text:"Good Game",icon:"GG",key:"G"},{text:"Fuck You",icon:"🖕",key:"F"}],
 			this.high_def_radar = !0,
@@ -12397,7 +12400,7 @@
 			this.soundtrack = "crystals.mp3",
 			this.OI1OO = !1,
 			this.anonymous_ships = !1,
-			this.radar_shows_leader = !1,
+			this.radar_shows_leader=!0,
 			this.OlIOI = BATTLE_SHIPS,
 			this.OIIOl = BATTLE_SHIP_TYPES,
 			this.OlIOI.add(OlIOI.ships_by_code[101]),
@@ -12812,11 +12815,12 @@
 				icon: "K",
 				key: "Q"
 			}],
-			this.radar_zoom = 1,
+			this.radar_zoom=1,
 			this.soundtrack = "argon.mp3",
 			this.gameover = !1,
 			this.ship_can_upgrade = !1,
 			this.ship_can_buy_life = !1,
+			this.restricted_weapons_store=!1,
 			this.show_upgrades = !1,
 			this.disable_ship_upgrade_collapsing = !0,
 			this.sharing_enabled = !1,
@@ -13669,10 +13673,10 @@
 		return i.prototype = e.prototype, t.prototype = new i, t.IIl0l = e.prototype, t
 	}, hasProp = {}.hasOwnProperty, this.ModdingMode = function(t) {
 		function e(t) {
-			this.OOlOI = t, e.IIl0l.constructor.call(this, "modding", "Modding"), this.radar_shows_leader = !1
+			this.OOlOI = t, e.IIl0l.constructor.call(this, "modding", "Modding"), this.radar_shows_leader=!1
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e.prototype.OO01I = function(t) {
@@ -13787,7 +13791,7 @@
 			e.IIl0l.constructor.call(this, t)
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e
@@ -13796,7 +13800,7 @@
 			e.IIl0l.constructor.call(this, t)
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e
@@ -13805,7 +13809,7 @@
 			e.IIl0l.constructor.call(this, t)
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e
@@ -13814,7 +13818,7 @@
 			e.IIl0l.constructor.call(this, t)
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e
@@ -13823,7 +13827,7 @@
 			e.IIl0l.constructor.call(this, t)
 		}
 		return extend(e, t), e.prototype.setOptions = function(t) {
-			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom = t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
+			if (e.IIl0l.setOptions.call(this, t), t.radar_zoom && (this.radar_zoom=t.radar_zoom), null != t.weapons_store && (this.restricted_weapons_store = !t.weapons_store), null != t.respawn_delay && (this.respawn_delay = !t.respawn_delay), null != t.vocabulary) return this.vocabulary = t.vocabulary
 		}, e.prototype.messageReceived = function(t) {
 			return e.IIl0l.messageReceived.call(this, t), this.messageReceivedModding(t)
 		}, e
