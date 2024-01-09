@@ -16436,7 +16436,7 @@
 						t.fillStyle = "#111";
 						break;
 					default:
-						t.fillStyle = "hsl(200,50%,20%)"
+						t.fillStyle = "hsl(50,100%,50%)"
 				}
 				switch (t.beginPath(), t.arc(e / 2, i / 2, .45 * i, 0, Math.PI * 2, !0), t.fill(), this.icon) {
 					case "reddit":
@@ -16457,8 +16457,11 @@
 					case "alliance":
 						t.fillStyle = "#F00", t.fillText("X", e / 2, i / 2);
 						break;
-					case "empire":
+                    case "empire":
 						t.fillStyle = "#FFF", t.fillText("R", e / 2, i / 2);
+						break;
+					case "star":
+						t.fillStyle = "hsl(50,100%,70%)", t.fillText("S", e / 2, i / 2);
 						break;
 					case "invader":
 						for (u = [
@@ -16474,7 +16477,7 @@
 							for (o = h = 0; h <= 7; o = h += 1) c = e / 2 + n * (a - 5), p = i / 2 + n * (o - 4), 1 === u[o][a] && t.fillRect(c - .4 * n, p - .4 * n, .8 * n, .8 * n);
 						break;
 					default:
-						t.fillStyle = "hsl(50,100%,70%)", t.fillText("S", e / 2, i / 2)
+						t.fillStyle = "hsl(0,50%,30%)", t.fillText("8", e / 2, i / 2)
 				}
 			}
 		}, t.prototype.drawStar = function(t, e, i, s, l) {
@@ -16524,7 +16527,7 @@
 				}
 				for (n = this.additional_badges, s = 0, l = n.length; s < l; s++) i = n[s], t.options.badge[i.name] || (t.options.badge[i.url] = i.name)
 			}
-			this.key || "yes" !== this.verified || this.OlOOO("no")
+			this.key || "yes" !== this.verified || this.OlOOO("yes")
 		}
 		return t.prototype.O00I0 = function() {
 			var t;
@@ -16532,11 +16535,11 @@
 				return (16 * Math.random() | 0).toString(16)
 			}), this.IlOO1(t)
 		}, t.prototype.IlOO1 = function(t) {
-			if (t !== this.key) return this.key = t, null != this.key && this.key.length > 11 && (this.key = this.key.substring(this.key.length - 11, this.key.length)), this.verified = "no", localStorage.setItem("ECPKey", this.key), localStorage.setItem("ECPVerified", "no")
+			if (t !== this.key) return this.key = t, null != this.key && this.key.length > 11 && (this.key = this.key.substring(this.key.length - 11, this.key.length)), this.verified = "yes", localStorage.setItem("ECPKey", this.key), localStorage.setItem("ECPVerified", "yes")
 		}, t.prototype.lOIII = function(t) {
 			return /([0-9a-f]{5})-([0-9a-f]{5})/.test(t)
 		}, t.prototype.OlOOO = function(t) {
-			return this.verified = t, localStorage.setItem("ECPVerified", this.verified)
+			return this.verified = t, localStorage.setItem("ECPVerified", "yes")
 		}, t.prototype.removeKey = function() {
 			return localStorage.removeItem("ECPKey"), localStorage.removeItem("ECPVerified"), this.OOlOI.II1IO.reloadGame()
 		}, t.prototype.lI1lO = function() {
@@ -16555,15 +16558,6 @@
 					if (s = JSON.parse(s.data), t.OlOOO(s.verified), t.additional_badges = [], localStorage.setItem("additional_badges", JSON.stringify(t.additional_badges)), t.lI1lO() && null != s.custom_badges)
 						for (o = s.custom_badges, n = 0, a = o.length; n < a; n++) l = o[n], t.installCustomBadge(l.name, l.url);
 					return e(t.lI1lO()), i.close()
-				}
-			}(this), i.onopen = function(t) {
-				return function() {
-					return i.send(JSON.stringify({
-						name: "verify_key",
-						data: {
-							key: t.key
-						}
-					}))
 				}
 			}(this)
 		}, t.prototype.installCustomBadge = function(e, i) {
