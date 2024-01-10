@@ -1,0 +1,53 @@
+{
+  "last_update": "now",
+  "s1": [
+    {
+      "id": "5ef40c8466a08f11abe5bb7e",
+      "name": "SᄅF̶ Troller",
+      "custom": {
+        "badge": "Fly",
+        "finish": "Peony",
+        "laser": "2"
+      },
+      "max_wave": 0,
+      "score": 0,
+      "victory": 0
+    },
+    {
+      "id": "591585eaf934d05044fa4714",
+      "name": "✭ƓΛꝈ⤳NND",
+      "custom": {
+        "badge": "PulseFighter",
+        "finish": "Strawberry",
+        "laser": "3"
+      },
+      "max_wave": 0,
+      "score": 0,
+      "victory": 0
+    },
+    {
+      "id": "5c7b3beb18be217653f5b7c9",
+      "name": "S2F 🔛🔝",
+      "custom": {
+        "badge": "http://starblast.io/ecp/srcchamp.png",
+        "finish": "SeaGreen",
+        "laser": "3"
+      },
+      "max_wave": 10,
+      "score": 214415,
+      "victory": 108
+    },
+    {
+      "id": "5cf6953bea4bec063b93d139",
+      "name": "EOT is Trash",
+      "custom": {
+        "badge": "TorpWitch",
+        "finish": "MidnightBlue",
+        "laser": "0"
+      },
+      "max_wave": 10,
+      "score": 300187,
+      "victory": 87
+    }
+  ]
+}
