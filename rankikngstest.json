@@ -33,9 +33,9 @@
         "finish": "SeaGreen",
         "laser": "3"
       },
-      "max_wave": 10,
-      "score": 214415,
-      "victory": 108
+      "max_wave": 0,
+      "score": 0,
+      "victory": 0
     },
     {
       "id": "5cf6953bea4bec063b93d139",
@@ -45,9 +45,9 @@
         "finish": "MidnightBlue",
         "laser": "0"
       },
-      "max_wave": 10,
-      "score": 300187,
-      "victory": 87
+      "max_wave": 0,
+      "score": 0,
+      "victory": 0
     }
   ]
 }
