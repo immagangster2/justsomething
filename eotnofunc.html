@@ -3168,18 +3168,18 @@
 
 			var materialcolor = document.querySelector('input[name="custommaterial"]');
 			if (materialcolor) {
-				var savedmaterialcolor = localStorage.getItem('Gem Color 2');
+				var savedmaterialcolor = localStorage.getItem('Material Color');
 
 				if (savedmaterialcolor === null) {
 					savedmaterialcolor = '#FF8080'; // Default color
-					localStorage.setItem('Gem Color 2', savedmaterialcolor);
+					localStorage.setItem('Material Color', savedmaterialcolor);
 				}
 
 				materialcolor.value = savedmaterialcolor;
 
 				materialcolor.addEventListener("input", function () {
 					var currentmaterialcolor = materialcolor.value;
-					localStorage.setItem('Gem Color 2', currentmaterialcolor);
+					localStorage.setItem('Material Color', currentmaterialcolor);
 				});
 			}
 
