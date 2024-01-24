@@ -16253,8 +16253,11 @@
                 case "Strawberry":
                     s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "hsla(350,80%,40%)"), s.addColorStop(.5, "hsla(350,80%,60%)"), s.addColorStop(.5, "hsla(355,90%,30%)"), s.addColorStop(1, "hsla(355,90%,75%)");
                     break;
+				case "zinc":
+					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#EEE"), s.addColorStop(1, "#666");
+					break;
 				default:
-					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "#EEE"), s.addColorStop(1, "#666")
+					s = t.createLinearGradient(0, 0, 0, i), s.addColorStop(0, "hsl(0,100%,50%)"), s.addColorStop(.5, "hsl(60,100%,50%)"), s.addColorStop(.5, "hsl(120,100%,50%)"), s.addColorStop(1, "hsl(180,100%,50%)"), s.addColorStop(1, "hsl(240,100%,50%)"), s.addColorStop(1, "hsl(300,100%,50%)"), s.addColorStop(1, "hsl(360,100%,50%)");
 			}
 			if (t.globalCompositeOperation = "source-atop", t.fillStyle = s, "carbon" === this.finish) {
 				for (n = r = 0, c = 4 * h - 1; r <= c; n = r += 1) t.fillStyle = n % 2 == 0 ? s : l, t.fillRect(n * e / (4 * h), 0, e / (4 * h), i);
